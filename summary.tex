@@ -1,0 +1,160 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Basic Search/Paper 01}
+\title{Search-Based Test Case Generation for Cyber-Physical Systems}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+\blindtext
+\blindtext
+\blindtext
+\blindtext
+
+\section{Critical Discussion}
+%1/2 Page
+\blindtext
+\blindtext
+\blindtext
+\blindtext
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{5}
+
+Some text to explain why I gave 5 starts to this paper... 
+
+Of course I would love to suggest this paper for the next semester !
+
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{This is a very important question}% Optional answer follow
+{Those are some important notes about the question or a possible answer to it.}
+
+\criticalquestion{This is another very important question}% Optional answer follow
+{Those are some important notes about the question or a possible answer to it.}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+FILL ME WITH AN ACCURATE NUMBER...
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{chen_deepdriving:_2015}%
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Keywords search using Google Scholar}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{Some basic explanation here.}
+
+% SECOND
+%\relatedwork%
+%% Put the cite key corresponding to the paper here:
+%{key1}%
+%% Explain how did you find the paper here:
+%{Keywords search using Google Scholar}
+%% Explain why this paper is related here:
+%{Some basic explanation here.}
+
+% THIRD
+%\relatedwork%
+%% Put the cite key corresponding to the paper here:
+%{key1}%
+%% Explain how did you find the paper here:
+%{Keywords search using Google Scholar}
+%% Explain why this paper is related here:
+%{Some basic explanation here.}
+
+% FOURTH - AND PROBABLY LAST 
+%\relatedwork%
+%% Put the cite key corresponding to the paper here:
+%{key1}%
+%% Explain how did you find the paper here:
+%{Keywords search using Google Scholar}
+%% Explain why this paper is related here:
+%{Some basic explanation here.}
+
+
+\end{document}
