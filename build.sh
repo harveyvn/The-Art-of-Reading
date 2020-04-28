@@ -1,10 +1,10 @@
 #!/bin/bash
 # My first script
 
-echo -n "Build or Verify? (b/v): "
+echo -n "Build or Verify? (Enter to build): "
 read answ
 
-if [ "$answ" == "b" ]; then
+if [ "$answ" == "" ]; then
 	zip submission.zip summary.pdf summary.tex biblio.bib
 	echo "Done. Ready to submit!";
 	exit 1;
