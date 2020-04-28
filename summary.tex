@@ -94,7 +94,7 @@ The search-based approach consists of an algorithm based on the multi-objective 
 
 First of all, the paper was well written. In the abstract of the paper, it not only identiﬁed problems that the traditional model-based testing framework faced in CPSs but also proposed an alternative solution to address those problems successfully. In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed RS in most of the given case studies. Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as reactive test cases, requirements coverage, test case similarity, test execution time, test suite, etc. in detail. Therefore, it makes those terms comprehensible, even for people with minimal software testing experience. Finally, the goals of the experiment are identiﬁed clearly and measured mathematically by the authors. To elaborate, the description of objective measures such as requirements coverage, test case similarity, and test execution time is transparent and repeated throughout the paper. Researchers also presented several mathematical equations to deﬁne the cost and eﬀectiveness of those measures and all of them contributed to examination of optimal reactive test cases. Besides, thanks to four case scenarios, evaluation metrics such as Hypervolume quality indicator and other statistical analysis methods like t-test, results of experiments are reliable and adequate to justify the hypothesis.
 
-On the other hand, algorithm parameters conﬁguration followed the recommendation by jMetal, which can result in misunderstanding for the audience. Although the authors described many conﬁguration parameters of the algorithm thoroughly, they missed the reason behind which can lead to confusion in its initial setup. Moreover, diﬀerent configurations can lead to diﬀerent result analysis. Thus, the research failed to report the system’s behavior and describe the eﬀect of the result after changing that parameter conﬁgurations. Last but not least, the authors did not explain why they chose Hypervolume as a quality indicator. Since there are several quality indicators such as Hypervolume, Epsilon, and Generalized Spread and all of them can apply to evaluate the quality of Pareto fronts, it will be better to have a rigorous explanation to support their choice over others.
+On the other hand, algorithm parameters conﬁguration followed the recommendation by jMetal, which can result in misunderstanding for the audience. Although the authors described many conﬁguration parameters of the algorithm thoroughly, they missed the reason behind which can lead to confusion in its initial setup. Moreover, diﬀerent configurations can lead to diﬀerent result analysis. Thus, the research failed to report the system’s behavior and describe the eﬀect of the result after changing that parameter conﬁgurations. Last but not least, the authors did not explain why they chose Hypervolume as a quality indicator. Since other quality indicators such as Hypervolume, Epsilon, and Generalized Spread can apply to evaluate the quality of Pareto fronts [1], it will be better to have a rigorous explanation to support their choice over others.
 
 To conclude, I’m almost convinced that a search-based approach is by far an ideal, pragmatic approach built on top of NSGA-II in search of the optimal reactive test cases for CPSs. 
 \newpage 
@@ -106,7 +106,7 @@ To conclude, I’m almost convinced that a search-based approach is by far an id
 
 The paper has defined many testing concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. However, due to the minor limitations above, I would love to give this paper 4 stars.
 
-Of course I would love to suggest this paper for the next semester !
+Of course I highly recommend this paper for the next semester !
 
 
 \section{Critical Questions}
@@ -129,7 +129,6 @@ Of course I would love to suggest this paper for the next semester !
 {Cyber-Physical Systems, Random Search, Reactive Test Cases}
 % Explain why this paper is related here (do not just say, it has the same content or a similar title...)
 {Providing the concept of Cyber-Physical Systems and motivation why the paper selected the Random Search as a comparison baseline}
-
 
 % SECOND
 \relatedwork
@@ -157,6 +156,10 @@ Of course I would love to suggest this paper for the next semester !
 {Hypervolume Quality Indicator}
 %% Explain why this paper is related here:
 {Provide practical guide for selecting a suitable quality indicator in different software engineering contexts}
+
+\section{References}
+
+[1] \fullcite{wang2016practical}
 
 
 \end{document}
