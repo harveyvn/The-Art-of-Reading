@@ -71,6 +71,8 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 \lhead{Vuong Nguyen}
 \rhead{Topic: Basic Search/Paper 01}
 \title{Search-Based Test Case Generation for Cyber-Physical Systems}
+\author{Vuong Nguyen}
+\date{\today}
 
 \begin{document}
 \begin{center}
@@ -82,79 +84,78 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-\blindtext
-\blindtext
-\blindtext
-\blindtext
+The paper discusses the testing challenges of the Cyber-Physical Systems (CPSs) and then proposes a multi-objective search-based approach to solve them. CPSs refers to systems in which computational and physical layers are deeply integrated. There are several factors that make testing in CPSs challenges like complex networks, unpredictable behaviors, and various input data. Traditional model-based testing is infeasible to apply due to time-consuming and compute-intensive in capturing the interaction between the systems and its environment continuously. Therefore, the paper mentions simulation-based testing despite its own computational complexity.
 
+In order to solve these issues, researchers introduced a new search-based approach which concentrates on three cost-eﬀectiveness measures: requirements coverage (RC) - how many requirements a speciﬁc test suite covers, test case similarity (TCS) - a measurement of similarity among test cases and test execution time (TET). There have been several related works recently but none of them take these measures into account, and the process obtained test case is semi-automatic. 
+
+The search-based approach consists of an algorithm based on the multi-objective search algorithms named NSGA-II along with one crossover operator and three mutation operators (\emph{Mu\_BO}, \emph{Mu\_TS}, \emph{Mu\_TC}) with an aim to ﬁnd optimal reactive test cases. In order to indicate that the approach is superior in comparison to Random Search (RS), four case scenarios such as DC Engine, Tank System, UAV, and Cruise Control were selected and researchers validated their approach along with three mutation operators via two research questions. The former speciﬁes the comparison between the approach and RS while the latter speciﬁes the comparison among the three mutation operators to ﬁnd the best one. Regarding evaluation metrics, they chose the Hypervolume (HV) quality indicator to measure the requirement coverage volume. The indicator value is between 0 and 1 and a higher value implies better performance. In addition, the Shapiro-Wilk test, t-test, and Vargha and Delaney statistics were applied to determine the signiﬁcance and diﬀerences between test generations. The algorithm was then executed 100 times and for each iteration, its result was collected and analyzed. As a result, the performance of the approach exceed the RS signiﬁcantly in all four case scenarios and \emph{Mu\_BO} demonstrated its performance over \emph{Mu\_TS} and \emph{Mu\_TC} for 75\%.\par
 \section{Critical Discussion}
 %1/2 Page
-\blindtext
-\blindtext
-\blindtext
-\blindtext
+First of all, the paper was well written. In the abstract of the paper, it not only identiﬁed problems that the traditional model-based testing method faced in CPSs but also proposed an alternative solution to address those problems successfully. In the same way, the paper provided strong evidence to support their arguments on why their approach statistically outperformed RS in most of the given case studies. Furthermore, researchers attempted to make their paper easy to read by explaining basic concepts such as reactive test cases, requirements coverage, test case similarity, test execution time, test suite, etc. in detail. Therefore, it makes those terms simple to understand, especially for people with a lack of software testing experience. Finally, the goals of the experiment are identiﬁed clearly and measured mathematically by the authors. To elaborate, the description of objective measures such as requirements coverage, test case similarity, and test execution time is transparent and repeated throughout the paper. Researchers also presented several mathematical equations to deﬁne the cost and eﬀectiveness of those measures and all of them contributed to examination of optimal reactive test cases. Besides, thanks to four case scenarios, evaluation metrics such as Hypervolume quality indicator and other statistical analysis methods like t-test, results of experiments are reliable and good enough to prove goals and answer the research questions.
 
+On the other hand, algorithms parameters conﬁguration followed the recommendation by jMetal, which can result in misunderstanding for the audience. Although the authors described many conﬁguration parameters of the algorithm deeply, they missed the reason behind which can lead to confusion in its initial setup. Moreover, diﬀerent conﬁguration can lead to diﬀerent result analysis. Thus, the research failed to report the system’s behavior and describe the eﬀect of the result after changing that parameter conﬁguration. Last but not least, the authors did not explain why they chose Hypervolume as a quality indicator. Since there were several quality indicators such as Hypervolume, Epsilon, and Generalized Spread and all of them can apply to evaluate the quality of Pareto fronts, it will be better to have an explanation to support their choice over others.
+
+To conclude, the paper nearly convinces their audience and a search-based approach is an ideal practical approach built on top of NSGA-II to ﬁnd the optimal reactive test cases for CPSs. 
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
 
 \section{Rating}
 % Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
-\Stars{5}
+\Stars{4}
 
-Some text to explain why I gave 5 starts to this paper... 
+The paper has defined many testing concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistic analysis methods. However, due to minor limitation above, I would love to give this paper 4 stars.
 
 Of course I would love to suggest this paper for the next semester !
 
 
 \section{Critical Questions}
 % A least 2 questions here. If possible try to answer them or write down 
-\criticalquestion{This is a very important question}% Optional answer follow
-{Those are some important notes about the question or a possible answer to it.}
+\criticalquestion{What is the role of selection operator in the experiment? How strong does it effect to the evaluation' results?}% Optional answer follow
+{In Section IV.B.2, the paper mentioned the Selection Operator but it missed explanation for the role of the operator.}
 
-\criticalquestion{This is another very important question}% Optional answer follow
-{Those are some important notes about the question or a possible answer to it.}
+\criticalquestion{If the parameter configurations do not follow recommendation by jMetal, will the evaluation's result be different?}% Optional answer follow
 
 \section{Related Work}
 % Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
-\paragraph{How many other papers did you considered during for the related work?}
-FILL ME WITH AN ACCURATE NUMBER...
+\paragraph{How many other papers did you considered during for the related work?} 4
 
 
 % FIRST
 \relatedwork%
 % Put the citation key corresponding to the paper you selected here:
-{chen_deepdriving:_2015}%
+{arrieta2016test}%
 % Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
-{Keywords search using Google Scholar}
+{Cyber-Physical Systems, Random Search, Reactive Test Cases}
 % Explain why this paper is related here (do not just say, it has the same content or a similar title...)
-{Some basic explanation here.}
+{Providing the concept of Cyber-Physical Systems and motivation why the paper selected the Random Search as a comparison baseline}
+
 
 % SECOND
-%\relatedwork%
+\relatedwork
 %% Put the cite key corresponding to the paper here:
-%{key1}%
+{rahmati2013developing}%
 %% Explain how did you find the paper here:
-%{Keywords search using Google Scholar}
+{Binary Tournament Selection Operator; Non-dominated sorting genetic algorithm}
 %% Explain why this paper is related here:
-%{Some basic explanation here.}
+{Provide fundamental concept of NSGA-II and binary tournament selection method}
 
 % THIRD
-%\relatedwork%
+\relatedwork
 %% Put the cite key corresponding to the paper here:
-%{key1}%
+{bringmann2008model}
 %% Explain how did you find the paper here:
-%{Keywords search using Google Scholar}
+{Model-Based Testing, Automotive Systems}
 %% Explain why this paper is related here:
-%{Some basic explanation here.}
+{Provide Model-based Testing in Practice and limitation in comparison to Simulation-based Testing}
 
 % FOURTH - AND PROBABLY LAST 
-%\relatedwork%
+\relatedwork
 %% Put the cite key corresponding to the paper here:
-%{key1}%
+{wang2016practical}
 %% Explain how did you find the paper here:
-%{Keywords search using Google Scholar}
+{Hypervolume Quality Indicator}
 %% Explain why this paper is related here:
-%{Some basic explanation here.}
+{Provide practical guide for selecting a suitable quality indicator in different software engineering contexts}
 
 
 \end{document}
