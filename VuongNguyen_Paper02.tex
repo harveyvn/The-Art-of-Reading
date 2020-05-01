@@ -79,9 +79,27 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 
 %%%%%%%%%
 % If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+%follow the lane
+%regain its center on the lane
+%drive within a lane
+%avoid land departure
+%to depart the road
+%to move away from the center of the lane
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
+The paper discusses the testing challenges of autonomous vehicles due to danger in real traffic and computer intensive in virtual environment and then the authors propose a search-based procedural content generation approach to address these challenges. 
+Virtual testing applies X-in-the-loop paradigm by using machine learning techniques to test self-driving car.
+The approach consists of procedural content generation (PCG) - the algorithm to create a game content and search-based testing (SBST) - the algorithm to generate test cases in the self-driving car context with an aim to produce scenarios for exposing problems of self-driving car software systems. 
+Despite the fact PCG for virtual road generation is challenging task due to complex geometrical properties for making their virtual roads closing to the realities, this algorithm has proven its potential ability to generate virtual road networks precisely and effectively.
+To elaborate, the algorithm initializes virtual road as sequences of points - polylines for simplifying not only the rendering operation but also evaluation of geometric properties.
+Furthermore, road generation mechanism only generates valid roads, which are not self-intersect and they do not cross the map boundary either. In addition, the front line of the former road segment will be the back line of the latter in order to ensure the gapless condition.
+All of them contributes to construct valid road networks, where one valid road intersects to at least one road at the starting point IP of both roads.
+
+A search-based approach to improve the network with an aim of making the autonomous cars to deviate from the road.
+Finally, they evaluate their model on two self-driving car software systems and explored that AsFault does not only have a better performance in speed but also improve a test suite generation when it can catch up to twice as many as lane deviation in comparison with other random testing (...).
+
+
 
 
 \section{Critical Discussion}
