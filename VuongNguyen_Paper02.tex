@@ -94,36 +94,37 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper discusses the testing challenges of autonomous vehicles in the reality due to low performance and high danger which can cause fatal accidents. 
-Despite computer intensive, virtual testing is considered as an alternative environment. Thus the authors propose a search-based procedural content generation approach to address these challenges. 
+The paper discusses the testing challenges of autonomous vehicles in the real life due to low performance and high danger which can cause fatal accidents. 
 %
-The paper introduced the procedural content generation (PCG) as an algorithm to create a game content and the search-based testing (SBST) as an algorithm to generate test cases in the self-driving car context and 
-by combining two algorithms into one approach, it will be able to produce efficient case studies for exposing problems of self-driving car software systems.
+In spite of computer intensive, the authors considered virtual environment and then proposed a search-based procedural content generation approach along with its AsFAULT prototype to address these problems. 
 %
-In spite of the fact that virtual road generation by PCG is challenging due to complexities in geometrical properties for making their virtual roads closing to realities, 
-this algorithm has still proven its potential ability to generate virtual road networks precisely and effectively.
-%
-To elaborate, the algorithm initializes virtual road as sequences of points (polylines) for simplifying not only the rendering operation but also evaluation of geometric properties.
-%
-Furthermore, road generation mechanism only generates valid road segments, which are not self-intersect and they do not cross the map boundary either. 
-In addition, the front line of the former road segment will be the back line of the latter in order to ensure the gapless condition.
-%
-All of them contributes to construct valid road networks, where one valid road intersects to at least one road at the starting point IP of both roads.
-%
-A search-based approach to improve the network with an aim of making the autonomous cars to deviate from the road.
-%
-Finally, they evaluate their model on two self-driving car software systems and explored that AsFault does not only have a better performance in speed but also improve a test suite generation when it can catch up to twice as many as lane deviation in comparison with other random testing (...).
+The paper introduces the Procedural Content Generation (PCG) as an algorithm to generate road automatically and the Search-based Testing (SBST) as an algorithm to generate effective test cases in the self-driving car context.
+% 
+By combining two algorithms into one approach, it will be able to produce efficient test cases for exposing problems of self-driving car software systems.
 
-
+Despite the fact that AsFAULT's road generation based on PCG is challenging due to complexities in geometrical properties for making their virtual roads closing to realities, 
+this algorithm has still proven its ability not only in generating road networks precisely but also testing lane keeping systems effectively.
+%
+To elaborate, the algorithm initializes sequences of points and then generates valid road segments, which construct valid road networks.
+%
+Furthermore, AsFAULT utilizes a search-based approach with an aim to evolve their road networks.
+%
+In addition, the approach encodes road networks as an operation encoding which allows AsFAULT to evolve test cases and to generate the roads by itself. 
+%
+AsFAULT also provides navigation paths, in which driving tasks can drive through and those paths are modeled as a graph representation.
+%
+In order to indicate that the AsFAULT is superior in comparison to Random Search, researches formulated four research questions and concluded empirical studies on two different self-driving software systems such as BeamNG.AI and DeepDriving.
+%
+Regarding to evaluation metrics, they performed Mann-Whitney U-test \textit{p}-values for significance tests and Vargha–Delaney statistic to measure the effect size.
+%
+As a result, the approach demonstrated its capability by finding the number of \textit{OBE} in both test subjects which is twice as many \textit{OBE} as random search. It also indicates the difficulty in evolution of single-road networks in comparison with multi-road network as well as illustrates that although small maps can speed up the searching, the large maps can increase effectiveness to test cases.
 
 
 \section{Critical Discussion}
 %1/2 Page
-\blindtext
-\blindtext
-\blindtext
-\blindtext
+First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully. In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed Random Search in most of the given case studies. Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as reactive test cases, requirements coverage, test case similarity, test execution time, test suite, etc. in detail. Therefore, it makes those terms comprehensible, even for people with minimal software testing experience. Finally, the goals of the experiment are identified clearly and measured mathematically by the authors. To elaborate, the description of objective measures such as requirements coverage, test case similarity, and test execution time is transparent and repeated throughout the paper. Researchers also presented several mathematical equations to define the cost and effectiveness of those measures and all of them contributed to examination of optimal reactive test cases. Besides, thanks to four case scenarios, evaluation metrics such as Hypervolume quality indicator and other statistical analysis methods like t-test, results of experiments are reliable and adequate to justify the hypothesis.
 
+On the other hand, algorithm parameters conﬁguration followed the recommendation by jMetal, which can result in misunderstanding for the audience. Although the authors described many conﬁguration parameters of the algorithm thoroughly, they missed the reason behind which can lead to confusion in its initial setup. Moreover, diﬀerent configurations can lead to diﬀerent result analysis. Thus, the research failed to report the system’s behavior and describe the eﬀect of the result after changing that parameter conﬁgurations. Last but not least, the authors did not explain why they chose Hypervolume as a quality indicator. Since other quality indicators such as Hypervolume, Epsilon, and Generalized Spread can apply to evaluate the quality of Pareto fronts [1], it will be better to have a rigorous explanation to support their choice over others.
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
 
