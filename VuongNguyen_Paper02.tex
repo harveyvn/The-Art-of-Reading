@@ -79,24 +79,34 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 
 %%%%%%%%%
 % If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
-%follow the lane
-%regain its center on the lane
-%drive within a lane
-%avoid land departure
-%to depart the road
-%to move away from the center of the lane
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper discusses the testing challenges of autonomous vehicles in the reality due to low performance and high danger which can cause fatal accidents. Despite computer intensive, virtual testing is considered as an alternative environment. Thus the authors propose a search-based procedural content generation approach to address these challenges. 
+The paper discusses the testing challenges of autonomous vehicles in the reality due to low performance and high danger which can cause fatal accidents. 
+Despite computer intensive, virtual testing is considered as an alternative environment. Thus the authors propose a search-based procedural content generation approach to address these challenges. 
 %
-The paper introduced the procedural content generation (PCG) as an algorithm to create a game content and the search-based testing (SBST) as an algorithm to generate test cases in the self-driving car context and by combining two algorithms into a single approach, it will be able to produce efficient case studies for exposing problems of self-driving car software systems.
+The paper introduced the procedural content generation (PCG) as an algorithm to create a game content and the search-based testing (SBST) as an algorithm to generate test cases in the self-driving car context and 
+by combining two algorithms into one approach, it will be able to produce efficient case studies for exposing problems of self-driving car software systems.
 %
-Despite the fact PCG for virtual road generation is challenging task due to complex geometrical properties for making their virtual roads closing to the realities, this algorithm has proven its potential ability to generate virtual road networks precisely and effectively.
+In spite of the fact that virtual road generation by PCG is challenging due to complexities in geometrical properties for making their virtual roads closing to realities, 
+this algorithm has still proven its potential ability to generate virtual road networks precisely and effectively.
 %
-To elaborate, the algorithm initializes virtual road as sequences of points - polylines for simplifying not only the rendering operation but also evaluation of geometric properties.
+To elaborate, the algorithm initializes virtual road as sequences of points (polylines) for simplifying not only the rendering operation but also evaluation of geometric properties.
 %
-Furthermore, road generation mechanism only generates valid roads, which are not self-intersect and they do not cross the map boundary either. In addition, the front line of the former road segment will be the back line of the latter in order to ensure the gapless condition.
+Furthermore, road generation mechanism only generates valid road segments, which are not self-intersect and they do not cross the map boundary either. 
+In addition, the front line of the former road segment will be the back line of the latter in order to ensure the gapless condition.
 %
 All of them contributes to construct valid road networks, where one valid road intersects to at least one road at the starting point IP of both roads.
 %
@@ -131,8 +141,8 @@ Of course I would love to suggest this paper for the next semester !
 \criticalquestion{This is a very important question}% Optional answer follow
 {Those are some important notes about the question or a possible answer to it.}
 
-\criticalquestion{This is another very important question}% Optional answer follow
-{Those are some important notes about the question or a possible answer to it.}
+\criticalquestion{In Section 4.1, we see the concept fitness of individuals. How significantly does it affect to test case's evolution?}% Optional answer follow
+% {Those are some important notes about the question or a possible answer to it.}
 
 \section{Related Work}
 % Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
