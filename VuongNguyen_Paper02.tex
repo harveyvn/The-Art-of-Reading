@@ -94,7 +94,7 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper discusses the testing challenges of autonomous vehicles in real life situations since  such testing settings are ineffective and dangerous. 
+The paper discusses the testing challenges of autonomous vehicles in real-life situations since  such testing settings are ineffective and dangerous. 
 %
 Despite being computer-intensive, virtual environments are still in use as an alternative to the aforementioned approach. And thus, the authors proposed a search-based procedural content generation approach along with its AsFAULT prototype to address these problems. 
 %
@@ -102,20 +102,22 @@ The paper introduces the Procedural Content Generation (PCG) as an algorithm to 
 % 
 By combining two algorithms, this approach will be able to produce efiicient test cases for exposing problems of self-driving car software systems.
 
-Despite the fact that AsFAULT’s road generation based on PCG is challenging due to complexities in geometrical properties for making their virtual roads realistic, 
-this algorithm has still proven its ability not only in generating road networks precisely but also testing lane keeping systems effectively.
+Although AsFAULT’s road generation based on PCG is challenging due to complexities in geometrical properties for making their virtual roads realistic, 
+this algorithm has still proven its ability not only in generating road networks precisely but also in testing lane-keeping systems effectively.
 %
 To elaborate, the algorithm initializes sequences of points and then generates valid road segments, which construct valid road networks.
 %
-Furthermore, AsFAULT utilizes a search-based approach with an aim to evolve their road networks.
+Furthermore, AsFAULT utilizes a search-based approach to evolve their road networks.
 %
-In addition, the approach encodes road networks as a hierarchical data structure and provides navigation paths, in which driving tasks can conduct and those paths are modeled as a graphic representation.
+Besides, the approach encodes road networks as a hierarchical data structure and provides navigation paths, in which driving tasks can conduct and those paths are modeled as a graphic representation.
 %
 In order to indicate that the AsFAULT is superior in comparison to Random Search, researchers formulated four research questions and concluded empirical studies on two different self-driving software systems such as BeamNG.AI and DeepDriving.
 %
 With regards to evaluation metrics, they performed Mann-Whitney U-test \textit{p}-values for significance tests and Vargha–Delaney statistics to measure the effective size.
 %
-As a result, the approach demonstrated its capability by finding the number of \textit{OBE} in both test subjects which are twice as many \textit{OBE} as random search. It also indicates the difficulty in evolution of single-road networks in comparison with multi-road network as well as illustrates that although small maps can speed up the searching, the large maps can increase effectiveness to test cases.
+As a result, the approach demonstrated its capability by finding the number of \textit{OBE} in both test subjects which are twice as many \textit{OBE} as random search. 
+%
+It also indicates the difficulty in the evolution of single-road networks in comparison with the multi-road networks as well as illustrates that although small maps can speed up the searching, the large maps can increase effectiveness to test cases.
 
 
 \section{Critical Discussion}
