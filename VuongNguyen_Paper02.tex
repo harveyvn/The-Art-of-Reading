@@ -109,9 +109,7 @@ To elaborate, the algorithm initializes sequences of points and then generates v
 %
 Furthermore, AsFAULT utilizes a search-based approach with an aim to evolve their road networks.
 %
-In addition, the approach encodes road networks as a hierarchical data structure which allows AsFAULT to evolve test cases and to generate roads by itself.
-%
-AsFAULT also provides navigation, in which driving tasks can conduct and those paths are modeled as a graphic representation.
+In addition, the approach encodes road networks as a hierarchical data structure and provides navigation paths, in which driving tasks can conduct and those paths are modeled as a graphic representation.
 %
 In order to indicate that the AsFAULT is superior in comparison to Random Search, researchers formulated four research questions and concluded empirical studies on two different self-driving software systems such as BeamNG.AI and DeepDriving.
 %
@@ -126,16 +124,15 @@ First of all, the paper was well written. In the abstract of the paper, it not o
 %
 Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as naturalistic field operational tests, PCG mechanism and SBST for Lane Keeping in detail. Therefore, it makes those terms comprehensible. 
 %
-Finally, the goals of the experiment are identified clearly and measured carefully by the authors. To elaborate, the configuration of a search-based testing has been analyzed deeply and the authors also discussed several possible drawback such as a large number of possible generating roads or paths causing high pressure to the software, etc. even if some have already been solved.
+Finally, the goals of the experiment are identified clearly and measured carefully by the authors. To elaborate, the configuration of the approach has been analyzed deeply and the authors also discussed several possible drawbacks such as a large number of possible roads or paths causing high pressure to the software, etc. even if some have already been solved.
 %
-In addition, researchers translated their research into an applicable use through empirical studies on BeamNG.AI and DeepDriving. The results then were measured by evaluation metrics such as Mann-Whitney U-test \textit{p}-values and Vargha–Delaney statistic, so that they are are reliable and adequate to justify the hypothesis.
+In addition, researchers translated their research into an applicable use through empirical studies on BeamNG.AI and DeepDriving. The results then were measured by evaluation metrics such as Mann-Whitney U-test \textit{p}-values and Vargha–Delaney statistic, so that they are reliable and adequate to justify the hypothesis.
 
-On the other hand, it might be possible that the measures used are not comparable across experiments. Thus, the authors should propose the solution on how to reduce a construct validity threat. 
+On the other hand, it might be possible that the measures used are not comparable across experiments which is considered as a construct validity threat. Thus, the authors might propose the solution on how to reduce this threat. 
 %
-In addition, the paper introduced DeepDriving extension which adjust the prediction quality of DeepDriving and if the predictions are not suitable, the control will switch to BeamNG.AI which might cause a potential bias in the experiment.
-. 
+In addition, the paper introduced DeepDriving extension which adjust the prediction quality of DeepDriving and if the predictions do not work as expected, the control will switch to BeamNG.AI which might cause a potential bias in the experiment.
 %
-Last but not least, experiment settings are limited in fixed width and single lane per traffic direction due to its simplification and fast generation, however it will be better if the AsFAULT can solve the problem with multi-lane per traffic direction in the future work since these kind of streets are quite popular around the world.
+Last but not least, experiment settings are limited in fixed width and single lane per traffic direction due to its simplification and fast generation for testing. However, it will be better if the AsFAULT can solve the problem with multi-lane per traffic direction in the future work since these kind of streets are quite popular around the world.
 
 To conclude, I’m almost convinced that the combination of PCG and SBST is by far an ideal, pragmatic approach for generating the effective road networks, which can recognize many safety-critical problems of the self-driving car.
 \newpage 
@@ -143,9 +140,9 @@ To conclude, I’m almost convinced that the combination of PCG and SBST is by f
 
 \section{Rating}
 % Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
-\Stars{4}
+\Stars{5}
 
-The paper has defined many  concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. However, due to the minor limitations above, I would love to give this paper 4 stars.
+The paper has defined many  concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. Even though, there are still small problems which can be solved in the future work, I would rate this paper 5 stars.
 
 Of course I highly recommend this paper for the next semester !
 
