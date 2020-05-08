@@ -1,0 +1,179 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Advanced Search/Paper 03}
+\title{Testing Vision-Based Control Systems Using Learnable Evolutionary Algorithms}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully. In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed Random Search in most of the given case studies. 
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as naturalistic field operational tests, PCG mechanism, and SBST for Lane Keeping in detail. Therefore, it makes those terms comprehensible. 
+%
+Finally, the goals of the experiment are identified clearly and measured carefully by the authors. To elaborate, the configuration of the approach has been analyzed deeply and the authors also discussed several possible drawbacks such as a large number of possible roads or paths causing high pressure to the software, etc. even if some have already been solved.
+%
+The results then were measured by evaluation metrics such as Mann-Whitney U-test \textit{p}-values and Vargha–Delaney statistic, so that they are reliable and adequate to justify the hypothesis.
+
+On the other hand, it might be possible that the measures used are not comparable across experiments which are considered as a construct validity threat. Thus, the authors might propose a solution on how to reduce this threat. 
+%
+Moreover,
+
+%
+Last but not least,
+
+To conclude, I’m almost convinced that the combination of PCG and SBST is by far an ideal, pragmatic approach for generating the effective road networks, which can recognize many safety-critical problems of the self-driving car.
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{5}
+
+The paper has defined many  concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. Even though, there are still small problems, they can be solved in future work, so I would rate this paper 5 stars.
+
+Of course I highly recommend this paper for the next semester !
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{}% Optional answer follow
+%{Those are some important notes about the question or a possible answer to it.}
+
+\criticalquestion{}% Optional answer follow
+% {Those are some important notes about the question or a possible answer to it.}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{gambi2019asfault}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar with keywords BeamNG.AI}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{The paper presents the AsFAULT in details and shows how to use it. It also provides demonstration with interesting video and images.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{horst2006trajectory}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Road Generation and Autonomous Vehicles.}
+%% Explain why this paper is related here:
+{The paper presents an algorithm that generate a trajectory for self-driving car and keep the car in lane safely.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{gu2012road}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Motion Planning and Autonomous Vehicles.}
+%% Explain why this paper is related here:
+{The paper describes an algorithm that generate a motion planner for Autonomous Vehicles on trajectory sampling.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{hu2018dynamic}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Road Generation, Effectiveness, Autonomous Vehicles.}
+%% Explain why this paper is related here:
+{The paper provides a method dynamic path planning to avoid obstacles and considers acceleration and speed for a vehicle.}
+
+
+\end{document}
