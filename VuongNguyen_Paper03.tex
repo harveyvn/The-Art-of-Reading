@@ -94,15 +94,43 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
+The paper discusses the testing challenges of autonomous vehicles in real-life situations since such testing settings are expensive and dangerous. 
+%
+Despite being computer-intensive and having large and multidimensional input spaces, simulation-based testing of vision-based control systems such as Advanced Driver Assistance Systems (ADAS) are still in use as an alternative to the aforementioned approach.
+%
+And thus, the authors proposed an automated testing algorithm using learnable evolutionary algorithms to address these problems, called NSGAII-DT.
+%
+
+The approach consists of Multi-objective Evolutionary Algorithms and Decision Tree Model with an aim to guide the search towards the critical test scenarios within time budget and identify the critical regions in which engineers can detect conditions that may expose failures. 
+%
+To elaborate, NSGAII algorithm provides a set of ADAS critical test scenarios and regions forming a Pareto non-dominated front.
+%
+Those test scenarios define a set of feature vectors as input and the outcome will contribute to compute fitness functions which formalize critical behaviors in certain scenarios.
+%
+In order to make the approach more effective, the research proposes the use of Genetic operators such as crossover and mutation operators which ensures the test scenario vectors satisfy the C\textsubscript{S} and C\textsubscript{I} constraints.
+%
+Moreover, a combination between Boolean functions such as \textit{CB} and Classification Decision Trees contribute to guide the algorithm by performing sets of iteration on labeled test cases and creating a new partition with labeled scenarios as majority.
+%
+As a result, the proposed algorithm does not only provide a better guide search but also characterize the critical regions of the ADAS input space.
+% 
+In order to indicate that the new algorithm is superior in comparison to NSGA-II algorithm, researchers validated their research by by addressing two research questions.
+%
+The former indicates whether NSGAII-DT is more effective than the normal NSGA-II algorithm in producing critical test scenarios while the latter discusses whether the contribution of decision tree can help to distinguish critical regions in ADAS input spaces.
+%
+Regarding evaluation metrics, they chose Hypervolume (HV), Generational Distance (GD), and Spread (SP) as quality indicators to compare the Pareto fronts of NSGAII-DT and NSGAII respectively.
+%
+
 
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully. In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed Random Search in most of the given case studies. 
+First of all, the paper was well written. In the abstract and introduction of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully.
 %
-Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as naturalistic field operational tests, PCG mechanism, and SBST for Lane Keeping in detail. Therefore, it makes those terms comprehensible. 
+In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed a baseline evolutionary search algorithm in most of the given case studies. 
 %
-Finally, the goals of the experiment are identified clearly and measured carefully by the authors. To elaborate, the configuration of the approach has been analyzed deeply and the authors also discussed several possible drawbacks such as a large number of possible roads or paths causing high pressure to the software, etc. even if some have already been solved.
+Furthermore, researchers attempted to make their paper persuasive by presenting an overview of an ADAS example (AEB system) and its generic formalism in detail. Therefore, it may reduce the threat of internal validity. 
+%
+Finally, the goals of the experiment are identified clearly and measured carefully by the authors. To elaborate, the configuration of the approach has been relied on several ADAS systems and feature of the PreScan simulator .
 %
 The results then were measured by evaluation metrics such as Mann-Whitney U-test \textit{p}-values and Vargha–Delaney statistic, so that they are reliable and adequate to justify the hypothesis.
 
@@ -142,11 +170,11 @@ Of course I highly recommend this paper for the next semester !
 % FIRST
 \relatedwork%
 % Put the citation key corresponding to the paper you selected here:
-{gambi2019asfault}
+{chen2018beyond}
 % Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
-{Searched in Google Scholar with keywords BeamNG.AI}
+{Searched in Google Scholar with keywords Beyond Evolutionary algorithms and Search-based Software Engineering}
 % Explain why this paper is related here (do not just say, it has the same content or a similar title...)
-{The paper presents the AsFAULT in details and shows how to use it. It also provides demonstration with interesting video and images.}
+{The paper presents an approach to address computer-intensive problem of evolutionary methods by using fewer solutions.}
 
 % SECOND
 \relatedwork
