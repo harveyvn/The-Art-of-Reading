@@ -96,52 +96,65 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %1/2 Page
 The paper discusses the testing challenges of autonomous vehicles in real-life situations since such testing settings are expensive and dangerous. 
 %
-Despite being computer-intensive and having large and multidimensional input spaces, simulation-based testing of vision-based control systems such as Advanced Driver Assistance Systems (ADAS) are still in use as an alternative to the aforementioned approach.
+Despite having large and multidimensional input spaces, simulation-based testing of vision-based control systems such as Advanced Driver Assistance Systems (ADAS) are still in use as an alternative to the aforementioned approach.
 %
 And thus, the authors proposed an automated testing algorithm using learnable evolutionary algorithms to address these problems, called NSGAII-DT.
 %
 
-The approach consists of Multi-objective Evolutionary Algorithms and Decision Tree Model with an aim to guide the search towards the critical test scenarios within time budget and identify the critical regions in which engineers can detect conditions that may expose failures. 
+The approach consists of the Multi-objective Search Algorithm and Decision Tree Model intending to guide the search towards the critical test scenarios within a time budget and identify the critical regions of the ADAS input space so that engineers can detect scenarios that may expose failures. 
 %
-To elaborate, NSGAII algorithm provides a set of ADAS critical test scenarios and regions forming a Pareto non-dominated front.
+To elaborate, the approach based on the NSGA-II algorithm provides a set of ADAS critical test scenarios and regions forming a Pareto non-dominated front.
 %
-Those test scenarios define a set of feature vectors as input and the outcome will contribute to compute fitness functions which formalize critical behaviors in certain scenarios.
+Those test scenarios define a set of feature vectors as input and the outcome will contribute to computing fitness functions that formalize critical behaviors.
 %
-In order to make the approach more effective, the research proposes the use of Genetic operators such as crossover and mutation operators which ensures the test scenario vectors satisfy the C\textsubscript{S} and C\textsubscript{I} constraints.
+Furthermore, the research proposes the use of Genetic operators and
 %
-Moreover, a combination between Boolean functions such as \textit{CB} and Classification Decision Trees contribute to guide the algorithm by performing sets of iteration on labeled test cases and creating a new partition with labeled scenarios as majority.
-%
-As a result, the proposed algorithm does not only provide a better guide search but also characterize the critical regions of the ADAS input space.
+a combination between Boolean functions and Classification Decision Trees to perform sets of iteration on labeled test cases and create a new partition with labeled scenarios as a majority.
 % 
-In order to indicate that the new algorithm is superior in comparison to NSGA-II algorithm, researchers validated their research by by addressing two research questions.
+To indicate that the new algorithm is superior in comparison to the NSGA-II algorithm, researchers validated their research by addressing two research questions.
 %
-The former indicates whether NSGAII-DT is more effective than the normal NSGA-II algorithm in producing critical test scenarios while the latter discusses whether the contribution of decision tree can help to distinguish critical regions in ADAS input spaces.
+The former indicates whether NSGAII-DT is more effective than the normal NSGA-II algorithm in producing critical test scenarios while the latter discusses whether the contribution of the decision tree will be able to distinguish critical regions in ADAS input spaces.
 %
-Regarding evaluation metrics, they chose Hypervolume (HV), Generational Distance (GD), and Spread (SP) as quality indicators to compare the Pareto fronts of NSGAII-DT and NSGAII respectively.
+Regarding evaluation metrics, those quality indicators are Hypervolume (HV), Generational Distance (GD), and Spread (SP) for the comparison of the Pareto fronts between NSGAII-DT and NSGAII and 
+% 
+the Wilcoxon Rank Sum test and Vargha-Delaney for measuring the statistical test results.
 %
+Researchers executed NSGAII-DT and NSGAII to the AEB case study for 20 times within 24 hours.
+%
+As a result, the performance of the NSGAII-DT exceeded the NSGAII significantly and managed to improve on the number of critical test scenarios by 78\%.
+% 
+Also, it can generate smaller, more homogeneous, and more precise critical regions.
 
 
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written. In the abstract and introduction of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully.
+First of all, the paper was well written. In the beginning, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully.
 %
-In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed a baseline evolutionary search algorithm in most of the given case studies. 
+Furthermore, researchers attempted to make their paper persuasive since they provide compelling evidence to support their arguments on why their approach statistically outperformed a baseline algorithm by answering two research questions with experimental studies.  
 %
-Furthermore, researchers attempted to make their paper persuasive by presenting an overview of an ADAS example (AEB system) and its generic formalism in detail. Therefore, it may reduce the threat of internal validity. 
+Finally, the goals of the experiment are identified and measured carefully by the authors.
 %
-Finally, the goals of the experiment are identified clearly and measured carefully by the authors. To elaborate, the configuration of the approach has been relied on several ADAS systems and feature of the PreScan simulator .
+To elaborate, the description of objective measures such as Multi-objective search and Decision tree learning is transparent throughout the paper. 
 %
-The results then were measured by evaluation metrics such as Mann-Whitney U-test \textit{p}-values and Vargha–Delaney statistic, so that they are reliable and adequate to justify the hypothesis.
+The results then were measured by evaluation metrics such as Hypervolume (HV), Generational Distance (GD), and Spread (SP), the Wilcoxon Rank Sum test, and Vargha-Delaney, so that they are reliable and adequate to justify the hypothesis.
+%
 
-On the other hand, it might be possible that the measures used are not comparable across experiments which are considered as a construct validity threat. Thus, the authors might propose a solution on how to reduce this threat. 
+On the other hand, the papers organized interviews with few engineers to prove the approach's advantages but the number of people might not be substantial to claim the usefulness of the approach under the statistical point of view.
 %
-Moreover,
-
+Besides, different configurations can lead to different result analysis. Therefore, the research should add more case studies besides AEB to describe the effects of critical behaviors and scenarios after changing typical parameters.
 %
-Last but not least,
-
-To conclude, I’m almost convinced that the combination of PCG and SBST is by far an ideal, pragmatic approach for generating the effective road networks, which can recognize many safety-critical problems of the self-driving car.
+Also, the AEB system is one of many fundamental problems of Automotive Software Systems. 
+%
+The researchers have constructed this case study along with numerous parameter variables and complex formalization whereas they miss mentioning the ability to reuse those things on other problems in the same domain such as autonomous parking.
+%
+Therefore, it might be time-consuming and require lots of efforts in not only understanding the approach and learning how to apply it to a new problem.
+%
+Last but not least, the paper introduces a lot of concepts without connecting them as an overview picture. 
+%
+Thus, it may lead to an increase in the complexity of the paper which makes it incomprehensible, especially for people with minimal software testing experience. 
+%
+To conclude, I’m interested in the combination of NSGA-II and Decision Tree Model is by far an ideal, pragmatic approach for generating effective critical test cases to expose problems of the self-driving car but it might be tough to translate the concept into applicable use.
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
 
@@ -149,7 +162,7 @@ To conclude, I’m almost convinced that the combination of PCG and SBST is by f
 % Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
 \Stars{5}
 
-The paper has defined many  concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. Even though, there are still small problems, they can be solved in future work, so I would rate this paper 5 stars.
+The paper has defined many  concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. Even though, there are still small problems as mentioned above, so I would rate this paper 3 stars.
 
 Of course I highly recommend this paper for the next semester !
 
@@ -179,29 +192,29 @@ Of course I highly recommend this paper for the next semester !
 % SECOND
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{horst2006trajectory}
+{campos2017empirical}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar with keywords Road Generation and Autonomous Vehicles.}
+{Searched in Google Scholar with keywords Evolutionary Algorithms and Test Suite Generation.}
 %% Explain why this paper is related here:
-{The paper presents an algorithm that generate a trajectory for self-driving car and keep the car in lane safely.}
+{The paper demonstrates a comparison between evolutionary algorithms and random testing to find the most effective one for test generation.}
 
 % THIRD
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{gu2012road}
+{buhler2004automatic}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar with keywords Motion Planning and Autonomous Vehicles.}
+{Searched in Google Scholar with keywords Autonomous Parking and Evolutionary Algorithm.}
 %% Explain why this paper is related here:
-{The paper describes an algorithm that generate a motion planner for Autonomous Vehicles on trajectory sampling.}
+{The paper describes an algorithm that define suitable fitness functions to evaluate the quality of parking.}
 
 % FOURTH - AND PROBABLY LAST 
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{hu2018dynamic}
+{khosrowjerdi2017learning}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar with keywords Road Generation, Effectiveness, Autonomous Vehicles.}
+{Searched in Google Scholar with keywords Critical Test Cases, Autonomous Vehicles.}
 %% Explain why this paper is related here:
-{The paper provides a method dynamic path planning to avoid obstacles and considers acceleration and speed for a vehicle.}
+{The paper provides a method by applying machine learning and model-checking techniques for test case generation.}
 
 
 \end{document}
