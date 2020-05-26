@@ -1,0 +1,237 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Adversarial Scenarios/Paper 05}
+\title{Generating Adversarial Driving Scenarios in High-Fidelity Simulators}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper discusses the testing challenges of autonomous vehicles with human involvement and specification since such testing settings not only suppose to be time-consuming and difficult in scaling but also create the potential absence of critical driving scenarios.
+%
+Therefore, the authors introduced a method to automate the process of generating adversarial scenarios by using the Bayesian Optimization technique to find dangerous adversarial scenarios which suppose to expose weakness of self-driving policies and improve the safety of its software.
+%
+
+The proposed approach consists of a searching process that relied on Bayesian Optimization (BO), a robust simulator imitation learning, and hierarchical policy representation.
+%
+To elaborate, the BO is a method for discovering the global optima of a black-box function, the imitation learning technique is an algorithm for fine-tuning the self-driving hyper-parameters to derive safer driving behavior and the a hierarchical policy representation performs an optimization for data-efficient in purpose.
+%
+In this paper, the black-box function is the cumulative cost-to-go function which has been using the Gaussian Process to perform exploration in high uncertainty areas.
+%
+The approach aims to optimize the behaviors of Non-Player Characters (NPC)
+%
+and determine a parameter identification of adversarial policies and trajectories which assists to define the high-risk adversarial configurations for the self-driving policy. 
+% 
+To indicate that the approach is superior in comparison to baselines including the Random Search and the Cross-Entropy Method, researchers executed their proposed method on three case scenarios that respectively involve a pedestrian, a vehicle, and both of them.
+%
+Also, the number of crashes and their proportions are recorded to compare an effectiveness in generating higher crashes between those methods and
+%
+the imitation learning algorithm has been used to retrain the policy to validate its capability of increasing the safety of driving policy.
+%
+As a result, when the performance of the BO approach exceeded two baselines in two case scenarios, the BO method demonstrated its performance in producing crashes with higher impact, overtaking other methods by 1.4 times and a cooperation between the imitation learning and a domain expert leads to a successful retraining to avoid vehicle crashes and increase safety of self-driving cars.
+
+
+%The approach consists of a robotic simulator named $Mana$ and virtual worlds generated by the Procedural Content Generation (PCG) algorithm. 
+%%
+%The researchers collected relevant environmental attributes and robotic characteristics to build a world model for a simulation environment.
+%%
+%Regarding data collection and analysis, researchers gathered the navigation tracking's data and data sources come from the point of view of the robot and the external observer respectively.
+%%
+%Each simulation run is sorted as a binomial classification task depending on the successful and failed state of the test.
+%%
+%To evaluate the practical effectiveness, researchers validated the research by addressing three research questions.
+%%
+%The first question debates an influence that control parameters have on the levels of difficulty (easy, challenging, and very difficult configuration).
+%%%%
+%%%The next question examines which control parameters impact the level of indeterminism while the final is to compare the evolution of the fault navigation service among different levels of difficulties.
+%%%%
+%%%As a result, there is an obvious correlation between the control parameters and levels of difficulty when the deformation $d$ increases, it indicates the general trend of the rising of difficult level.
+%%%
+%%In addition, due to many small obstacles, a large number of obstacles, and the bigger number of subdivisions of the ground surface, the level of difficulty also notices an increase.
+%%
+%Furthermore, researchers argue that any control parameters can affect to the evolution of diverse trajectories, not only the difficulty level as expected.
+%
+%And finally, both the challenging and very difficult configuration reflect a higher revealing power than the easy configuration with respect to a faulty version of the navigation.
+
+
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the beginning, it not only identified problems that the traditional testing framework faced in unstructured and human shared environments but also proposed an alternative solution to address those problems transparently.
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as measurements to classify the difficulty, macroscopic parameters for map generation, class of experiment, etc. in detail. Therefore, it makes those terms comprehensible, even for people with minimal software testing experience.  
+%
+Finally, the goals of the experiment are identified and measured by the authors when the paper provided compelling evidence with statistical figures to support their arguments in most of the given case studies.
+%
+
+On the other hand, the proposed approach missed its applicable usage to assert the practical effectiveness. 
+%
+Due to lack of the examples applied state-of-the-art approaches, it might be easy to introduce bias into its effectiveness and feasibility for testing robot navigation.
+%
+Another point is the reproducibility problem due to the absence of controlling parameters' information such as the number of obstacles, the obstacle size, and the number of subdivisions.
+%
+In order to address this problem, the authors might consider the settings suggested by the guide provided by other similar papers or they can add the default settings to their paper.
+%
+Regarding conclusion validity threats, the authors failed to mention some evaluation metrics such as Mann-Whitney U-test $p$-values to measure and evaluate final results, so that their conclusion could be less reliable and adequate to justify the hypothesis.
+%
+Besides, the configuration setting is limited in identifying which factor that affects to indeterminism, so that a given explanation to the second research question might be insufficient.
+%
+Therefore, this paper might be deficient to provide new insights toward the indeterminism and its evolution of the navigation in different levels of difficulties.
+%
+Last but not least, the experiment settings have restricted the world model to static elements due to their simplification. 
+%
+However, it will be better if the authors can solve the problem with dynamic elements in future work since these kinds of testing are quite popular and have attractted interest from the testing community.
+%
+To conclude, I’m interested in the idea of controlling the level of difficulty is by far an ideal, pragmatic approach for generating effective critical test cases to expose problems of the self-driving car but the proposed approach might be insufficient to translate this concept into applicable use.
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{3}
+
+The paper has defined concepts and experimental design transparently. However, there are still significant problems as mentioned above, so I would rate this paper 3 stars.
+
+Of course, I do not recommend this paper for the next semester!
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{What is the role of the trade-off between exploration and exploitation operator in the experiment? How significantly does it affect to the evaluation' results?}% Optional answer follow
+% Optional answer follow
+%{Those are some important notes about the question or a possible answer to it.}
+
+\criticalquestion{Comparing the proposed approach and the testing using the Learnable Evolutionary Algorithm, which approach provide more critical testing environments?}% Optional answer follow
+% {Those are some important notes about the question or a possible answer to it.}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{robert2017first}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar with the main paper' citing articles and keywords: Virtual Worlds, Autonomous Robot.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{The paper applies an above measurement of the level of difficulty to provide systematic method to test robots in virtual worlds.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{sotiropoulos2017can}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with the main paper' citing articles and keywords: Virtual Worlds, Autonomous Robot}
+%% Explain why this paper is related here:
+{The paper compensates the main paper for feedback about input scenarios and observation data the author missed and discusses a study of navigation bugs for testing robot navigation.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{gravcanin1998virtual}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Virtual Worlds and Testing Robot Navigation.}
+%% Explain why this paper is related here:
+{The paper describes a virtual environment for testing autonomous underwater vehicles.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{gupta2009using}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Virtual Worlds and Testing Robot Navigation.}
+%% Explain why this paper is related here:
+{The paper provides the design of real-time simulating environments for testing mobile robotics.}
+
+
+\end{document}
