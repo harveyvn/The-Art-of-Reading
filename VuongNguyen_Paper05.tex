@@ -94,59 +94,59 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper discusses the challenges of driving scenario generation with human involvement and specification since such testing settings not only suppose to be time-consuming and difficult in scaling but also create the potential absence of critical driving scenarios.
+The paper examines the challenges of driving scenario generation with human involvement and specification since such testing settings are not only supposedly time-consuming and tedious in scaling but also cause the potential absence of critical driving scenarios.
 %
-Therefore, the authors introduced a method to automate the process of generating adversarial scenarios by using the Bayesian Optimization technique to find dangerous adversarial scenarios which suppose to expose the weakness of self-driving policies and improve the safety of its software.
+Therefore, the authors introduced a method to automate the process of generating adversarial scenarios by using the Bayesian Optimization technique to look for dangerous adversarial scenarios which are meant to expose the weakness of self-driving policies and improve the safety of its software.
 %
 
-The proposed approach consists of a searching process that relied on Bayesian Optimization (BO), a robust simulator imitation learning, and hierarchical policy representation.
+The proposed approach consists of a searching process that relies on Bayesian Optimization (BO), a robust simulator imitation learning, and hierarchical policy representation.
 %
-To elaborate, the BO is a method for discovering the global optima of a black-box function, the imitation learning technique is an algorithm for fine-tuning the self-driving hyper-parameters to derive safer driving behavior and the hierarchical policy representation performs optimization for data-efficient in purpose.
+To elaborate, the BO is a method for discovering the global optima of a black-box function, the imitated learning technique is an algorithm for fine-tuning the self-driving hyper-parameters to derive safer driving behavior and the hierarchical policy representation is used to achieve data-efficiency
 %
 In this paper, the black-box function is the cumulative cost-to-go function which has been using the Gaussian Process to perform exploration in high uncertainty areas.
 %
 The approach aims to optimize the behaviors of Non-Player Characters (NPC)
 %
-and determine a parameter identification of adversarial policies and trajectories which assists to define the high-risk adversarial configurations for the self-driving policy. 
+and determine a parameter identification of adversarial policies and trajectories which help define the high-risk adversarial configurations for the self-driving policy. 
 % 
-To indicate that the approach is superior in comparison to baselines including the Random Search and the Cross-Entropy Method, researchers executed their proposed method on three case scenarios that respectively involve a pedestrian, a vehicle, and both of them.
+To indicate that the approach is superior to baselines including the Random Search and the Cross-Entropy Method, researchers executed their proposed method on three case scenarios that respectively involved a pedestrian, a vehicle, and both of them.
 %
 Also, the number of crashes and their proportions are recorded to compare effectiveness in generating higher crashes between those methods and
 %
 the imitation learning algorithm has been used to retrain the policy to validate its capability of increasing the safety of driving policy.
 %
-As a result, when the performance of the BO approach exceeded two baselines in two case scenarios, the BO method demonstrated its performance in producing collision with higher impact, overtaking other methods by 1.4 times and cooperation between the imitation learning and a domain expert leads to successful retraining to avoid vehicle crashes and increase the safety of self-driving cars.
-
-
+As a result, when the performance of the BO approach exceeded two baselines in two case scenarios, the BO method demonstrated its performance in producing collision with higher impact, overtaking other methods by 1.4 times and cooperation between the imitation learning and a domain expert leads to successful retraining to avoid vehicle crashes and improve the safety of self-driving cars.
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the semi-automatic testing framework faced in driving scenario generation but also proposed an alternative solution to address those problems successfully. 
+First of all, the paper was well written and compelling in many aspects. In the abstract of the paper, it not only identified problems that the semi-automatic testing framework faced in driving scenario generation but also proposed an alternative solution to address those problems successfully. 
 %
-In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed Random Search and Cross-Entropy Method in most of the given case scenarios.
+In the same way, the paper provided competent evidence to support their arguments on why their approach statistically outperformed Random Search and Cross-Entropy Method in most of the given case scenarios.
 %
 Furthermore, researchers attempted to make their paper approachable to the public by explaining concepts such as Bayesian Optimization, Hierarchical Policy Representation, and Imitation Learning Algorithm in detail.
 %
-Therefore, it makes those terms comprehensible for people.  
+Therefore, those terms became comprehensible for people.  
 %
-Finally, the conclusion of the experiment are identified clearly and measured carefully by the authors. 
+Finally, the conclusions of the experiment are clearly stated and measured carefully by the authors. 
 %
-To elaborate, the configuration of the approach has been analyzed and evaluated for hundred times across three different types of scenarios while the authors also discussed several possible drawbacks of their method such as scalability issues and the curse of dimensionality and proposed a temporary solution to address those problems.
+To elaborate, the configuration of the approach has been analyzed and evaluated for numerous times across three different types of scenarios while the authors also discussed several possible drawbacks of their method such as scalability issues and the curse of dimensionality and proposed a temporary solution to address those problems.
 %
 
-On the other hand, it might be better if researchers introduce a research goal and research questions, and then demonstrate some experiments to answer those questions and how they achieve the goal. 
+In contrast, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
 %
-Without a good research goal and research questions, it is difficult to narrow down the research topic which makes the paper harder to provide an appropriate answer to address a research problem.
+Without a good research goal and research questions, it is challenging to narrow down the research topic which makes the paper harder to address the research problem.
 %
-Another point might be the missing statistical significance to measure the final result.
+Another point that is worth considering might be the missing statistical significance to measure the final result.
 %
-The authors can consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results so that their final conclusion could be more reliable and adequate to justify the hypothesis.
+The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results so that their final conclusion could be more reliable and adequate to justify the hypothesis.
 %
 Last but not least, experiment settings are limited in a single pedestrian and a single vehicle on a fixed size map. 
 %
-However, it will be better if the authors can solve the problem by adding more NPCs in future work since these kinds of scenarios are common in the real world and have attracted interest from the driving scenario generation community.
+However, it will be better if the authors can solve the problem by adding more NPCs in future works since these kinds of scenarios are common in the real world and have attracted interest from the driving scenario generation community.
 %
 To conclude, I’m almost convinced that the BO method is by far an ideal, pragmatic approach for generating the effective driving adversarial scenarios, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
+
+
 
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
