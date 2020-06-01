@@ -1,0 +1,232 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Crashes/Paper 02}
+\title{DeepCrashTest: Turning Dashcam Videos into Virtual Crash Tests for Automated Driving Systems}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper introduces the a novel critical driving scenario generation framework called a DeepCrashTest for stress-testing self-driving navigation software.
+%
+The approach aims to extract information from diverse dashcam crash videos uploaded on the Internet and attempt to replicate critical driving scenarios found in real-world.
+%
+To elaborate, the DeepCrashTest extracts 3D trajectories of vehicles and performs as an extension to the test generation framework Sim-ATAV for reproducing the extracted scenarios as critical test case situation in a simulated environment.
+%
+The framework is supposed to improve the safety regulations of autonomous vehicles on public roads by testing those vehicles or their collision avoidance systems with dangerous scenarios in a virtual environment.
+%
+
+The proposed approach consists of a monocular 2D vehicle tracking, a 3D bounding box estimation, ego motion estimation, lane tracking, and camera calibration for views of ego vehicles.
+%
+In more details, a Vehicle Detector applies Mask-RCNN to provide annotation to a vehicle tracker. 
+%
+In addition, the 3D bounding box estimation estimates a position of trajectories with 3D DeepBox while the ego motion uses SLAM, Visual Odometry, and Optical Flow based approaches to find an absolute trajectories of agents in the frame.
+%
+Although researchers explain a drawback of the ego motion's approach performance in high drifting predictions, they provide Lane Detection solution based on DBSCAN, and B-spline curve fitting, and then use Hungarian algorithm and Hausdorff distance metrics to evaluate the association between detected and tracked lanes at each frame.
+%
+%The paper examines the challenges of driving scenario generation with human involvement and specification since such testing settings are not only supposedly time-consuming and tedious in scaling but also cause the potential absence of critical driving scenarios.
+%%
+%Therefore, the authors introduced a method to automate the process of generating adversarial scenarios by using the Bayesian Optimization technique to look for dangerous adversarial scenarios which are meant to expose the weakness of self-driving policies and improve the safety of its software.
+%%
+%
+%The proposed approach consists of a searching process that relies on Bayesian Optimization (BO), a robust simulator imitation learning, and hierarchical policy representation.
+%%
+%To elaborate, the BO is a method for discovering the global optima of a black-box function, the imitated learning technique is an algorithm for fine-tuning the self-driving hyper-parameters to derive safer driving behavior and the hierarchical policy representation is used to achieve data-efficiency
+%%
+%In this paper, the black-box function is the cumulative cost-to-go function which has been using the Gaussian Process to perform exploration in high uncertainty areas.
+%%
+%The approach aims to optimize the behaviors of Non-Player Characters (NPC)
+%%
+%and determine a parameter identification of adversarial policies and trajectories which help define the high-risk adversarial configurations for the self-driving policy. 
+%% 
+%To indicate that the approach is superior to baselines including the Random Search and the Cross-Entropy Method, researchers executed their proposed method on three case scenarios that respectively involved a pedestrian, a vehicle, and both of them.
+%%
+%Also, the number of crashes and their proportions are recorded to compare effectiveness in generating higher crashes between those methods and
+%%
+%the imitation learning algorithm has been used to retrain the policy to validate its capability of increasing the safety of driving policy.
+%%
+%As a result, when the performance of the BO approach exceeded two baselines in two case scenarios, the BO method demonstrated its performance in producing collision with higher impact, overtaking other methods by 1.4 times and cooperation between the imitation learning and a domain expert leads to successful retraining to avoid vehicle crashes and improve the safety of self-driving cars.
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written and compelling in many aspects. In the abstract of the paper, it not only identified problems that the semi-automatic testing framework faced in driving scenario generation but also proposed an alternative solution to address those problems successfully. 
+%
+In the same way, the paper provided competent evidence to support their arguments on why their approach statistically outperformed Random Search and Cross-Entropy Method in most of the given case scenarios.
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining concepts such as Bayesian Optimization, Hierarchical Policy Representation, and Imitation Learning Algorithm in detail.
+%
+Therefore, those terms became comprehensible for people.  
+%
+Finally, the conclusions of the experiment are clearly stated and measured carefully by the authors. 
+%
+To elaborate, the configuration of the approach has been analyzed and evaluated for numerous times across three different types of scenarios while the authors also discussed several possible drawbacks of their method such as scalability issues and the curse of dimensionality and proposed a temporary solution to address those problems.
+%
+
+In contrast, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
+%
+Without a good research goal and research questions, it is challenging to narrow down the research topic which makes the paper harder to address the research problem.
+%
+Another point that is worth considering might be the missing statistical significance to measure the final result.
+%
+The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results so that their final conclusion could be more reliable and adequate to justify the hypothesis.
+%
+Last but not least, experiment settings are limited in a single pedestrian and a single vehicle on a fixed size map. 
+%
+However, it will be better if the authors can solve the problem by adding more NPCs in future works since these kinds of scenarios are common in the real world and have attracted interest from the driving scenario generation community.
+%
+To conclude, I’m almost convinced that the BO method is by far an ideal, pragmatic approach for generating the effective driving adversarial scenarios, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
+
+
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{4}
+
+The paper has provided many concepts transparently and illustrated its empirical evaluation with proper configurations in various types of scenarios. Even though, there are still small problems, they can be solved in future work, so I would rate this paper 4 stars.
+
+Of course I highly recommend this paper for the next semester!
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{What is the role of the trade-off between exploration and exploitation operator in the experiment? How significantly does it affect to the evaluation' results?}% Optional answer follow
+% Optional answer follow
+%{Those are some important notes about the question or a possible answer to it.}
+
+\criticalquestion{If we expand the number of NPCs in the experiment to more than one pedestrian or vehicle in a big size map, will the curse of dimensionality be a main problem to reduce the performance of the BO method?}% Optional answer follow
+% {Those are some important notes about the question or a possible answer to it.}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{zhang2018deeproad}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar with keywords: Generating Roads, Autonomous Vehicles.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{The paper proposes DeepRoad, an unsupervised Deep Neural Network framework to produce driving scenes with various weather conditions by applying Generative Adversarial Networks.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{althoff2018automatic}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Automatic Generation, Critical Test Scenarios, Autonomous Vehicles}
+%% Explain why this paper is related here:
+{The paper produces automatically high-risk driving situations with a small solution space for avoiding a collision.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{klischat2019generating}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Automatic Generation, Critical Test Scenarios, Autonomous Vehicles}
+%% Explain why this paper is related here:
+{The paper describes a method for generating critical scenarios from initially uncritical scenarios with Evolutionary Algorithms.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{werling2010optimal}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Automatic Generation, Critical Test Scenarios, Autonomous Vehicles}
+%% Explain why this paper is related here:
+{The paper propose a semi-reactive trajectory generation method with using velocity keeping, merging,
+following, stopping etc to generate a reactive collision avoidance in Dynamic Street Scenarios.}
+
+
+\end{document}
