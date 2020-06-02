@@ -123,32 +123,34 @@ while the latter demonstrates promising results against the KITTI benchmark.
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written and compelling in many aspects. In the abstract and introduction of the paper, it not only proposed a DeepCrashTest approach in driving scenario generation clearly but also explained the motivation behind along with its configuration and working architecture explicitly.
+First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in driving scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
 %
 Additionally, researchers attempted to make their paper approachable to the public by explaining components in the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation, a lane tracking, and so on in details.
 %
+Besides, the goal and main problem are well formulated and and to the point.
+%
 Therefore, those terms became comprehensible for people and accessible for replication in future works.
 %
-Finally, the conclusions of the experiment are elaborated successfully by both qualitative evaluation and quantitative evaluation. 
+Finally, the conclusions of the experiment are demonstrated successfully and measured by qualitative evaluation and quantitative evaluation. 
 %
-The DeepCrashTest not only provides a complete experiment to simulate the crash scene from dashcam but also executes numerous times to find ideal situations in order to avoid the collision.
+Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from dashcam, it also executes numerous simulations to find proper conditions in order to avoid the collision.
 %
-Moreover, they validate results against the KITTI benchmark and most of them might be admissible to prove the framework's potential applicable use.
+Moreover, they validate results against the KITTI benchmark and most of them might be admissible to prove the framework's applicable capability.
 %
 
-In contrast, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
+On the other hand, the paper failed to take weather conditions affectting a driver's vehicle control into account since several weather changes such as heavy rain or strong winds on the highway can lead to crashes among cars.
 %
-Without a good research goal and research questions, it is challenging to narrow down the research topic which makes the paper harder to address the research problem.
+The authors can simulate these weather factors to explore their effects in driving conditions.
 %
-Another point that is worth considering might be the missing statistical significance to measure the final result.
+Another point that is worth considering might be the missing computing cost of the approach.
 %
-The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results so that their final conclusion could be more reliable and adequate to justify the hypothesis.
+Since the framework consists of many deep learning components, it would be valuable to mention the cost to perform experiment.
 %
-Last but not least, experiment settings are limited in a single pedestrian and a single vehicle on a fixed size map. 
+Last but not least, experiment settings are limited in intersections. 
 %
-However, it will be better if the authors can solve the problem by adding more NPCs in future works since these kinds of scenarios are common in the real world and have attracted interest from the driving scenario generation community.
+However, it will be better if the authors can use more than one camera, not only from the ego but also from others, to address the problem in future works since these kinds of scenarios are common in the real world and have attracted interest from the driving scenario generation community.
 %
-To conclude, I’m almost convinced that the BO method is by far an ideal, pragmatic approach for generating the effective driving adversarial scenarios, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
+To conclude, I’m almost convinced that using the Dashcam Videos to generate critical scenarios for stress-testing the self-driving car is by far an ideal, pragmatic approach for generating the effective and critical test cases in this domain, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
 
 
 
