@@ -94,7 +94,7 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper introduces a testing generation framework called a DeepCrashTest for stress-testing self-driving navigation software by generating a critical driving scenario.
+The paper introduces a testing generation framework called a DeepCrashTest, aims to generate critical scenarios for stress-testing self-driving navigation software.
 %
 The approach aims to extract information from diverse dashcam crash videos uploaded on the Internet and attempt to reproduce critical driving scenarios found in the real-world.
 %
@@ -120,42 +120,20 @@ As a result, the experiment has been evaluated by qualitative evaluation and qua
 The former evaluation not only indicates the effectiveness in simulating crash scenarios from dashcam cameras but also proposes measurements regarding the position of ego to avoid the collision
 %
 while the latter demonstrates promising results against the KITTI benchmark.
-%The paper examines the challenges of driving scenario generation with human involvement and specification since such testing settings are not only supposedly time-consuming and tedious in scaling but also cause the potential absence of critical driving scenarios.
-%%
-%Therefore, the authors introduced a method to automate the process of generating adversarial scenarios by using the Bayesian Optimization technique to look for dangerous adversarial scenarios which are meant to expose the weakness of self-driving policies and improve the safety of its software.
-%%
-%
-%The proposed approach consists of a searching process that relies on Bayesian Optimization (BO), a robust simulator imitation learning, and hierarchical policy representation.
-%%
-%To elaborate, the BO is a method for discovering the global optima of a black-box function, the imitated learning technique is an algorithm for fine-tuning the self-driving hyper-parameters to derive safer driving behavior and the hierarchical policy representation is used to achieve data-efficiency
-%%
-%In this paper, the black-box function is the cumulative cost-to-go function which has been using the Gaussian Process to perform exploration in high uncertainty areas.
-%%
-%The approach aims to optimize the behaviors of Non-Player Characters (NPC)
-%%
-%and determine a parameter identification of adversarial policies and trajectories which help define the high-risk adversarial configurations for the self-driving policy. 
-%% 
-%To indicate that the approach is superior to baselines including the Random Search and the Cross-Entropy Method, researchers executed their proposed method on three case scenarios that respectively involved a pedestrian, a vehicle, and both of them.
-%%
-%Also, the number of crashes and their proportions are recorded to compare effectiveness in generating higher crashes between those methods and
-%%
-%the imitation learning algorithm has been used to retrain the policy to validate its capability of increasing the safety of driving policy.
-%%
-%As a result, when the performance of the BO approach exceeded two baselines in two case scenarios, the BO method demonstrated its performance in producing collision with higher impact, overtaking other methods by 1.4 times and cooperation between the imitation learning and a domain expert leads to successful retraining to avoid vehicle crashes and improve the safety of self-driving cars.
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written and compelling in many aspects. In the abstract of the paper, it not only identified problems that the semi-automatic testing framework faced in driving scenario generation but also proposed an alternative solution to address those problems successfully. 
+First of all, the paper was well written and compelling in many aspects. In the abstract and introduction of the paper, it not only proposed a DeepCrashTest approach in driving scenario generation clearly but also explained the motivation behind along with its configuration and working architecture explicitly.
 %
-In the same way, the paper provided competent evidence to support their arguments on why their approach statistically outperformed Random Search and Cross-Entropy Method in most of the given case scenarios.
+Additionally, researchers attempted to make their paper approachable to the public by explaining components in the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation, a lane tracking, and so on in details.
 %
-Furthermore, researchers attempted to make their paper approachable to the public by explaining concepts such as Bayesian Optimization, Hierarchical Policy Representation, and Imitation Learning Algorithm in detail.
+Therefore, those terms became comprehensible for people and accessible for replication in future works.
 %
-Therefore, those terms became comprehensible for people.  
+Finally, the conclusions of the experiment are elaborated successfully by both qualitative evaluation and quantitative evaluation. 
 %
-Finally, the conclusions of the experiment are clearly stated and measured carefully by the authors. 
+The DeepCrashTest not only provides a complete experiment to simulate the crash scene from dashcam but also executes numerous times to find ideal situations in order to avoid the collision.
 %
-To elaborate, the configuration of the approach has been analyzed and evaluated for numerous times across three different types of scenarios while the authors also discussed several possible drawbacks of their method such as scalability issues and the curse of dimensionality and proposed a temporary solution to address those problems.
+Moreover, they validate results against the KITTI benchmark and most of them might be admissible to prove the framework's potential applicable use.
 %
 
 In contrast, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
