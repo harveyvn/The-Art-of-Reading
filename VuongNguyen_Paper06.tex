@@ -94,23 +94,32 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper introduces the a novel critical driving scenario generation framework called a DeepCrashTest for stress-testing self-driving navigation software.
+The paper introduces a testing generation framework called a DeepCrashTest for stress-testing self-driving navigation software by generating a critical driving scenario.
 %
-The approach aims to extract information from diverse dashcam crash videos uploaded on the Internet and attempt to replicate critical driving scenarios found in real-world.
+The approach aims to extract information from diverse dashcam crash videos uploaded on the Internet and attempt to reproduce critical driving scenarios found in the real-world.
 %
-To elaborate, the DeepCrashTest extracts 3D trajectories of vehicles and performs as an extension to the test generation framework Sim-ATAV for reproducing the extracted scenarios as critical test case situation in a simulated environment.
-%
-The framework is supposed to improve the safety regulations of autonomous vehicles on public roads by testing those vehicles or their collision avoidance systems with dangerous scenarios in a virtual environment.
+To elaborate, the DeepCrashTest extracts 3D trajectories of vehicles and performs as an extension to the test generation framework Sim-ATAV for recreating the extracted scenarios as a critical test case situation in a simulated environment.
 %
 
-The proposed approach consists of a monocular 2D vehicle tracking, a 3D bounding box estimation, ego motion estimation, lane tracking, and camera calibration for views of ego vehicles.
+The proposed approach consists of a monocular 2D vehicle tracking, a 3D bounding box estimation, and ego-motion estimation, a lane tracking, and a camera calibration for views of ego vehicles.
 %
-In more details, a Vehicle Detector applies Mask-RCNN to provide annotation to a vehicle tracker. 
+Specifically, the vehicle detector applies Mask-RCNN to provide annotation to a vehicle tracker which is based on the Re3-Tracker. 
 %
-In addition, the 3D bounding box estimation estimates a position of trajectories with 3D DeepBox while the ego motion uses SLAM, Visual Odometry, and Optical Flow based approaches to find an absolute trajectories of agents in the frame.
+Besides, the 3D bounding box approximates positions of trajectories with a 3D DeepBox network while the ego-motion aims to find absolute trajectories of agents within the frame.
 %
-Although researchers explain a drawback of the ego motion's approach performance in high drifting predictions, they provide Lane Detection solution based on DBSCAN, and B-spline curve fitting, and then use Hungarian algorithm and Hausdorff distance metrics to evaluate the association between detected and tracked lanes at each frame.
+Researchers also demonstrate the Lane Detection solution based on LaneNet, DBSCAN, and B-spline curve fitting to cluster and classify set of lanes and the lane tracking to extract information about the lane lines and keep them fit in the image pixel domain.
 %
+For all the simulation, the researchers proposed a Savitzky-Golay filter and a spline smoothing to produce trajectory curves and initialize them as inputs to simulate in Webots using a sim-ATAV framework.
+%
+Basing on heading direction, appearance, and disappearance time, agent vehicles are classified into seven categories and for each category, a specific velocity profile, initial positions, and path will be configured separately.
+%
+Road structure and its extension after the point of the collision have relied on the extracted information coming from the ego vehicle and the oncoming agent paths respectively.
+%
+As a result, the experiment has been evaluated by qualitative evaluation and quantitative evaluation.
+%
+The former evaluation not only indicates the effectiveness in simulating crash scenarios from dashcam cameras but also proposes measurements regarding the position of ego to avoid the collision
+%
+while the latter demonstrates promising results against the KITTI benchmark.
 %The paper examines the challenges of driving scenario generation with human involvement and specification since such testing settings are not only supposedly time-consuming and tedious in scaling but also cause the potential absence of critical driving scenarios.
 %%
 %Therefore, the authors introduced a method to automate the process of generating adversarial scenarios by using the Bayesian Optimization technique to look for dangerous adversarial scenarios which are meant to expose the weakness of self-driving policies and improve the safety of its software.
