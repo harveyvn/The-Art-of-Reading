@@ -123,35 +123,34 @@ while the latter demonstrates promising results against the KITTI benchmark.
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in driving scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
+First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in critical scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
 %
-Additionally, researchers attempted to make their paper approachable to the public by explaining components in the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation, a lane tracking, and so on in details.
-%
-Besides, the goal and main problem are well formulated and and to the point.
+Additionally, researchers attempted to make their paper approachable by explaining components in the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation and so on in detail.
 %
 Therefore, those terms became comprehensible for people and accessible for replication in future works.
 %
-Finally, the conclusions of the experiment are demonstrated successfully and measured by qualitative evaluation and quantitative evaluation. 
+Finally, the main problem are well formulated and the conclusions of the experiment are measured carefully by qualitative evaluation and quantitative evaluation. 
 %
-Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from dashcam, it also executes numerous simulations to find proper conditions in order to avoid the collision.
+Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from the dashcam, but it also executes numerous simulations to look up safer conditions in order to avoid the collision.
 %
-Moreover, they validate results against the KITTI benchmark and most of them might be admissible to prove the framework's applicable capability.
+Moreover, they validate results against the KITTI benchmark and most of them might be provable to the framework's applicable capability.
 %
 
-On the other hand, the paper failed to take weather conditions affectting a driver's vehicle control into account since several weather changes such as heavy rain or strong winds on the highway can lead to crashes among cars.
+On the other hand, the paper failed to take weather conditions affecting a driver's vehicle control into account since such weather changes including heavy rain or strong winds can lead to crashes among cars on the highway.
 %
-The authors can simulate these weather factors to explore their effects in driving conditions.
+The authors can consider simulating these weather factors to explore their effects on driving conditions.
 %
-Another point that is worth considering might be the missing computing cost of the approach.
+Another point concerning the evaluation might be the missing discussion about quantitative evaluation.
 %
-Since the framework consists of many deep learning components, it would be valuable to mention the cost to perform experiment.
+The paper does evaluate the generated experiment in the KITTI benchmark, but some of them are only mentioned very briefly without comparing it to other test generation baselines.
 %
-Last but not least, experiment settings are limited in intersections. 
+Thus, it would be difficult to indicate how superior the DeepCrashTest performs over other techniques on the same dataset.
 %
-However, it will be better if the authors can use more than one camera, not only from the ego but also from others, to address the problem in future works since these kinds of scenarios are common in the real world and have attracted interest from the driving scenario generation community.
+Last but not least, experiment settings are limited in intersection scenarios. 
+%
+It will be better if the authors suggest adding more than one camera, not only from the ego vehicle but also from others around, to address the problem in future works since these kinds of crashes are common in the real world.
 %
 To conclude, I’m almost convinced that using the Dashcam Videos to generate critical scenarios for stress-testing the self-driving car is by far an ideal, pragmatic approach for generating the effective and critical test cases in this domain, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
-
 
 
 \newpage 
