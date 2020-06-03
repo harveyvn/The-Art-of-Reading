@@ -94,9 +94,9 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper introduces a testing generation framework called a DeepCrashTest, aims to generate critical scenarios for stress-testing self-driving navigation software.
+The paper introduces a testing generation framework called a DeepCrashTest, aimed to generate critical scenarios for stress-testing self-driving navigation software.
 %
-The approach aims to extract information from diverse dashcam crash videos uploaded on the Internet and attempt to reproduce critical driving scenarios found in the real-world.
+The approach aims to extract information from diverse dashcam crash videos uploaded on the Internet and attempt to reproduce critical driving scenarios encountered in the real-world.
 %
 To elaborate, the DeepCrashTest extracts 3D trajectories of vehicles and performs as an extension to the test generation framework Sim-ATAV for recreating the extracted scenarios as a critical test case situation in a simulated environment.
 %
@@ -105,13 +105,13 @@ The proposed approach consists of a monocular 2D vehicle tracking, a 3D bounding
 %
 Specifically, the vehicle detector applies Mask-RCNN to provide annotation to a vehicle tracker which is based on the Re3-Tracker. 
 %
-Besides, the 3D bounding box approximates positions of trajectories with a 3D DeepBox network while the ego-motion aims to find absolute trajectories of agents within the frame.
+Besides, the 3D bounding box approximates positions of trajectories with a 3D DeepBox network while the ego-motion aims to pinpoint absolute trajectories of agents within the frame.
 %
-Researchers also demonstrate the Lane Detection solution based on LaneNet, DBSCAN, and B-spline curve fitting to cluster and classify set of lanes and the lane tracking to extract information about the lane lines and keep them fit in the image pixel domain.
+Researchers also demonstrate the Lane Detection solution based on LaneNet, DBSCAN, and B-spline curve fitting to cluster and classify sets of lanes and the lane tracking to extract information with regards to the lane lines and keep them fit in the image pixel domain.
 %
-For all the simulation, the researchers proposed a Savitzky-Golay filter and a spline smoothing to produce trajectory curves and initialize them as inputs to simulate in Webots using a sim-ATAV framework.
+For all the simulation, the researchers proposed a Savitzky-Golay filter and a spline smoothing to produce trajectory curves and initialize them as inputs to simulate in Webots involving a sim-ATAV framework.
 %
-Basing on heading direction, appearance, and disappearance time, agent vehicles are classified into seven categories and for each category, a specific velocity profile, initial positions, and path will be configured separately.
+Based on heading direction, appearance, and disappearance time, agent vehicles are classified into seven categories and for each category, a specific velocity profile, initial positions, and path will be configured individually.
 %
 Road structure and its extension after the point of the collision have relied on the extracted information coming from the ego vehicle and the oncoming agent paths respectively.
 %
@@ -125,20 +125,20 @@ while the latter demonstrates promising results against the KITTI benchmark.
 %1/2 Page
 First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in critical scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
 %
-Additionally, researchers attempted to make their paper approachable by explaining components in the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation and so on in detail.
+Additionally, researchers attempted to construct their paper in the most approachable way by explaining the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation and so on in detail.
 %
-Therefore, those terms became comprehensible for people and accessible for replication in future works.
+Therefore, those terms became comprehensible for users and accessible for replication in future projects.
 %
-Finally, the main problem are well formulated and the conclusions of the experiment are measured carefully by qualitative evaluation and quantitative evaluation. 
+Finally, the main problems are well formulated and the conclusions of the experiment are measured carefully by qualitative evaluation and quantitative evaluation. 
 %
 Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from the dashcam, but it also executes numerous simulations to look up safer conditions in order to avoid the collision.
 %
-Moreover, they validate results against the KITTI benchmark and most of them might be provable to the framework's applicable capability.
+Moreover, they validate results against the KITTI benchmark and most of them might be sustainable to the framework's applicable capability.
 %
 
-On the other hand, the paper failed to take weather conditions affecting a driver's vehicle control into account since such weather changes including heavy rain or strong winds can lead to crashes among cars on the highway.
+On the other hand, the paper failed to diagnose weather conditions affecting a driver's vehicle control and take them into account since such weather changes including heavy rain or strong winds can lead to crashes among cars on the highway.
 %
-The authors can consider simulating these weather factors to explore their effects on driving conditions.
+The authors could consider simulating these weather factors to explore their effects on driving conditions.
 %
 Another point concerning the evaluation might be the missing discussion about quantitative evaluation.
 %
@@ -148,9 +148,10 @@ Thus, it would be difficult to indicate how superior the DeepCrashTest performs 
 %
 Last but not least, experiment settings are limited in intersection scenarios. 
 %
-It will be better if the authors suggest adding more than one camera, not only from the ego vehicle but also from others around, to address the problem in future works since these kinds of crashes are common in the real world.
+It will be better if the authors suggest adding more than one camera, not only from the ego vehicle but also from others around, to address problems in future works since these kinds of crashes are common in the real world.
 %
 To conclude, I’m almost convinced that using the Dashcam Videos to generate critical scenarios for stress-testing the self-driving car is by far an ideal, pragmatic approach for generating the effective and critical test cases in this domain, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
+
 
 
 \newpage 
@@ -160,9 +161,9 @@ To conclude, I’m almost convinced that using the Dashcam Videos to generate cr
 % Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
 \Stars{4}
 
-The paper has represented its concept transparently and illustrated its empirical evaluation with proper configurations as well. The evaluation results have been promising to improve the safety of self-driving vehicles on public roads. Although there are still small problems, the general approach is comprehensible and those problems can be solved in future work, so I would rate this paper 4 stars.
+The paper has represented its concept transparently and illustrated its empirical evaluation with proper configurations as well. The evaluation results have been promising to improve the safety of self-driving vehicles on public roads. Although there are still small trivial problems, the general approach is comprehensible and those problems can be solved in future work, so I would rate this paper 4 stars.
 
-Of course I highly recommend this paper for the next semester!
+Of course I would highly recommend this paper for the next semester!
 
 \section{Critical Questions}
 % A least 2 questions here. If possible try to answer them or write down 
