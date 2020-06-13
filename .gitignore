@@ -28,3 +28,5 @@ glyphtounicode.tex
 *.fdb_latexmk
 *.fls
 *.log
+*-blx.bib
+*.run.xml
