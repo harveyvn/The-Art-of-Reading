@@ -94,42 +94,32 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper discusses the testing challenges of autonomous vehicles in naturalistic field operational tests since such testing settings are impractical and dangerous. 
+The paper discusses the testing challenges of autonomous vehicles in naturalistic field operational tests since such testings are impractical and dangerous. 
+%
+This calls for simulation testing of self-driving software which demands to generate critical driving scenarios. 
+%
+Those techniques require numerous sensory data which are scarce to collect so that it prevents a full reproduction.
 %
 And thus, the authors propose a testing generation framework called AC3R, aimed to generate critical scenarios for stress-testing self-driving software in diverse ways.
 %
-The approach aims to extract information from the police reports using NLP and Ontology, attempt to reproduce critical driving scenarios encountered in the real-world, and generate crashes as sustainable test cases in a simulation environment.
+The approach extracts information from police reports and attempt to reproduce critical driving scenarios encountered in the real-world, and generate crashes as sustainable test cases in a simulation environment.
 %
 
 The proposed technique AC3R consists of a four-step approach to analyze the police documents and acquire simulation-based test cases such as information extraction, trajectory planning, simulation generation, and test generation.
 %
-Specifically, the AC3R uitlizes the NLP and the domain-specific ontology to extract information about roads and vehicles invloved in accidents.
+Specifically, the AC3R utilizes the NLP and the domain-specific ontology to extract information about roads and vehicles involved in accidents.
 %
-The intercepting trajectories were computed afterwards as an abstract representation including the geometrical data and several way points which helps AC3R simulates a car crash using BeamNG.research.
+The intercepting trajectories were computed afterward as an abstract representation including the geometrical data and several waypoints which helps AC3R simulates a car crash using BeamNG.research.
 %
 Consequently, the simulation output will be accumulated with test oracles to derive system-level test cases.
 %
-
-
+To indicate that the AC3R is not only effectively producing simulations matching police reports and efficiently in the practical applicability, but also can derive suitable test scenarios, researchers validated their research by addressing five research questions and concluding empirical studies on two different self-driving software systems such as BeamNG.AI and DeepDriving.
 %
-
-
+As a result, the AC3R produced nearly 58\% considered simulations of the impact according to police reports and those simulations were supposed to accurately reflect the police reports' description by a standard online survey service involving 34 participants. 
 %
-Besides, the 3D bounding box approximates positions of trajectories with a 3D DeepBox network while the ego-motion aims to pinpoint absolute trajectories of agents within the frame.
+Also, the practical applicability of the AC3R is provable at analyzing police reports and producing corresponding critical scenarios.
 %
-Researchers also demonstrate the Lane Detection solution based on LaneNet, DBSCAN, and B-spline curve fitting to cluster and classify sets of lanes and the lane tracking to extract information with regards to the lane lines and keep them fit in the image pixel domain.
-%
-For all the simulation, the researchers proposed a Savitzky-Golay filter and a spline smoothing to produce trajectory curves and initialize them as inputs to simulate in Webots involving a sim-ATAV framework.
-%
-Based on heading direction, appearance, and disappearance time, agent vehicles are classified into seven categories and for each category, a specific velocity profile, initial positions, and path will be configured individually.
-%
-Road structure and its extension after the point of the collision have relied on the extracted information coming from the ego vehicle and the oncoming agent paths respectively.
-%
-As a result, the experiment has been evaluated by qualitative evaluation and quantitative evaluation.
-%
-The former evaluation not only indicates the effectiveness in simulating crash scenarios from dashcam cameras but also proposes measurements regarding the position of ego to avoid the collision
-%
-while the latter demonstrates promising results against the KITTI benchmark.
+Last but not least, the critical test cases produced by AC3R were successfully driving DeepDriving’s driver controller in different ways than the corresponding non-critical test cases and they are effectively exposed safety-critical problems of the self-driving car software.
 
 \section{Critical Discussion}
 %1/2 Page
@@ -138,40 +128,41 @@ First of all, the paper was well written. In the abstract of the paper, it not o
 In the same way, researchers attempted to make their paper persuasive since they provided compelling evidence to support their arguments on why AC3R is efficient and generates simulations by providing extensive evaluation such as five research questions, an empirical user study involving 34 participants, and a testing with a state-of-art self-driving software.
 %
 Furthermore, researchers attempted to make their paper approachable to the public by explaining the framework' mechanisms such as information extraction, trajectory planning, simulation generation, and test generation in details. Therefore, it makes those terms comprehensible. 
+\blindtext
+\blindtext
+\blindtext
+\blindtext
 
 
+% %
+% First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in critical scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
+% %
+% Additionally, researchers attempted to construct their paper in the most approachable way by explaining the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation and so on in detail.
+% %
+% Therefore, those terms became comprehensible for users and accessible for replication in future projects.
+% %
+% Finally, the main problems are well formulated and the conclusions of the experiment are measured carefully by qualitative evaluation and quantitative evaluation. 
+% %
+% Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from the dashcam, but it also executes numerous simulations to look up safer conditions in order to avoid the collision.
+% %
+% Moreover, they validate results against the KITTI benchmark and most of them might be sustainable to the framework's applicable capability.
+% %
 
-
-
-%
-First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in critical scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
-%
-Additionally, researchers attempted to construct their paper in the most approachable way by explaining the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation and so on in detail.
-%
-Therefore, those terms became comprehensible for users and accessible for replication in future projects.
-%
-Finally, the main problems are well formulated and the conclusions of the experiment are measured carefully by qualitative evaluation and quantitative evaluation. 
-%
-Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from the dashcam, but it also executes numerous simulations to look up safer conditions in order to avoid the collision.
-%
-Moreover, they validate results against the KITTI benchmark and most of them might be sustainable to the framework's applicable capability.
-%
-
-On the other hand, the paper failed to diagnose weather conditions affecting a driver's vehicle control and take them into account since such weather changes including heavy rain or strong winds can lead to crashes among cars on the highway.
-%
-The authors could consider simulating these weather factors to explore their effects on driving conditions.
-%
-Another point concerning the evaluation might be the missing discussion about quantitative evaluation.
-%
-The paper does evaluate the generated experiment in the KITTI benchmark, but some of them are only mentioned very briefly without comparing it to other test generation baselines.
-%
-Thus, it would be difficult to indicate how superior the DeepCrashTest performs over other techniques on the same dataset.
-%
-Last but not least, experiment settings are limited in intersection scenarios. 
-%
-It will be better if the authors suggest adding more than one camera, not only from the ego vehicle but also from others around, to address problems in future works since these kinds of crashes are common in the real world.
-%
-To conclude, I’m almost convinced that using the Dashcam Videos to generate critical scenarios for stress-testing the self-driving car is by far an ideal, pragmatic approach for generating the effective and critical test cases in this domain, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
+% On the other hand, the paper failed to diagnose weather conditions affecting a driver's vehicle control and take them into account since such weather changes including heavy rain or strong winds can lead to crashes among cars on the highway.
+% %
+% The authors could consider simulating these weather factors to explore their effects on driving conditions.
+% %
+% Another point concerning the evaluation might be the missing discussion about quantitative evaluation.
+% %
+% The paper does evaluate the generated experiment in the KITTI benchmark, but some of them are only mentioned very briefly without comparing it to other test generation baselines.
+% %
+% Thus, it would be difficult to indicate how superior the DeepCrashTest performs over other techniques on the same dataset.
+% %
+% Last but not least, experiment settings are limited in intersection scenarios. 
+% %
+% It will be better if the authors suggest adding more than one camera, not only from the ego vehicle but also from others around, to address problems in future works since these kinds of crashes are common in the real world.
+% %
+% To conclude, I’m almost convinced that using the Dashcam Videos to generate critical scenarios for stress-testing the self-driving car is by far an ideal, pragmatic approach for generating the effective and critical test cases in this domain, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
 
 
 
