@@ -125,46 +125,29 @@ Last but not least, the critical test cases produced by AC3R were successfully d
 %1/2 Page
 First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully. 
 %
-In the same way, researchers attempted to make their paper persuasive since they provided compelling evidence to support their arguments on why AC3R is efficient and generates simulations by providing extensive evaluation such as five research questions, an empirical user study involving 34 participants, and a testing with a state-of-art self-driving software.
+Furthermore, researchers attempted to make their paper approachable to the public by explaining the framework' mechanisms such as information extraction, trajectory planning, simulation generation, and test generation in detail. Therefore, it makes those terms comprehensible. 
 %
-Furthermore, researchers attempted to make their paper approachable to the public by explaining the framework' mechanisms such as information extraction, trajectory planning, simulation generation, and test generation in details. Therefore, it makes those terms comprehensible. 
-\blindtext
-\blindtext
-\blindtext
-\blindtext
+Finally, the goals of the experiment are identified and validated carefully by the authors. 
+%
+In the same way, researchers attempted to make their paper persuasive since they provided compelling evidence to support their arguments on why AC3R is efficiently generating critical test cases by providing extensive evaluation, an online survey involving 34 participants, and testing with a state-of-art self-driving software such as DeepDriving and BeamNG.AI.
+%
+The configuration of those empirical studies has been analyzed deeply and the authors also discussed several observations and possible reasons behind.
+%
+Also, researchers translated their research into an applicable use through empirical studies. The results then were evaluated and elaborated by corresponding bar charts so that they are reliable and adequate to justify the hypothesis.
 
-
-% %
-% First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in critical scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
-% %
-% Additionally, researchers attempted to construct their paper in the most approachable way by explaining the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation and so on in detail.
-% %
-% Therefore, those terms became comprehensible for users and accessible for replication in future projects.
-% %
-% Finally, the main problems are well formulated and the conclusions of the experiment are measured carefully by qualitative evaluation and quantitative evaluation. 
-% %
-% Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from the dashcam, but it also executes numerous simulations to look up safer conditions in order to avoid the collision.
-% %
-% Moreover, they validate results against the KITTI benchmark and most of them might be sustainable to the framework's applicable capability.
-% %
-
-% On the other hand, the paper failed to diagnose weather conditions affecting a driver's vehicle control and take them into account since such weather changes including heavy rain or strong winds can lead to crashes among cars on the highway.
-% %
-% The authors could consider simulating these weather factors to explore their effects on driving conditions.
-% %
-% Another point concerning the evaluation might be the missing discussion about quantitative evaluation.
-% %
-% The paper does evaluate the generated experiment in the KITTI benchmark, but some of them are only mentioned very briefly without comparing it to other test generation baselines.
-% %
-% Thus, it would be difficult to indicate how superior the DeepCrashTest performs over other techniques on the same dataset.
-% %
-% Last but not least, experiment settings are limited in intersection scenarios. 
-% %
-% It will be better if the authors suggest adding more than one camera, not only from the ego vehicle but also from others around, to address problems in future works since these kinds of crashes are common in the real world.
-% %
-% To conclude, I’m almost convinced that using the Dashcam Videos to generate critical scenarios for stress-testing the self-driving car is by far an ideal, pragmatic approach for generating the effective and critical test cases in this domain, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
-
-
+On the other hand, it is ideally advised to introduce statistical significance to measure the final result.
+%
+The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results to increase their final conclusion's reliability.
+%
+Another point that is worth considering might be the lack of discussion about other crash contributing factors such as weather or traffic elements.
+%
+It would be better if the authors can provide some arguments on how effective AC3R is at producing simulations with the simulated environment or traffic elements.
+%
+Last but not least, experiment settings are limited in police reports on a fixed size map.
+%
+However, it will be better if AC3R could extend its ability to new types of reports in order to formulate numerous critical test cases in the future.
+%
+To conclude, I’m almost convinced that the AC3R is by far an ideal, pragmatic approach for generating the effective driving adversarial scenarios, which can expose many safety-critical problems of the self-driving software and the proposed approach might be sufficient to translate this concept into applicable use.
 
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
