@@ -1,0 +1,240 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Crashes/Paper 01}
+\title{Generating Effective Test Cases for Self-Driving Cars from Police Reports}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper discusses the testing challenges of autonomous vehicles in naturalistic field operational tests since such testing settings are impractical and dangerous. 
+%
+And thus, the authors propose a testing generation framework called AC3R, aimed to generate critical scenarios for stress-testing self-driving software in diverse ways.
+%
+The approach aims to extract information from the police reports using NLP and Ontology, attempt to reproduce critical driving scenarios encountered in the real-world, and generate crashes as sustainable test cases in a simulation environment.
+%
+
+The proposed technique AC3R consists of a four-step approach to analyze the police documents and acquire simulation-based test cases such as information extraction, trajectory planning, simulation generation, and test generation.
+%
+Specifically, the AC3R uitlizes the NLP and the domain-specific ontology to extract information about roads and vehicles invloved in accidents.
+%
+The intercepting trajectories were computed afterwards as an abstract representation including the geometrical data and several way points which helps AC3R simulates a car crash using BeamNG.research.
+%
+Consequently, the simulation output will be accumulated with test oracles to derive system-level test cases.
+%
+
+
+%
+
+
+%
+Besides, the 3D bounding box approximates positions of trajectories with a 3D DeepBox network while the ego-motion aims to pinpoint absolute trajectories of agents within the frame.
+%
+Researchers also demonstrate the Lane Detection solution based on LaneNet, DBSCAN, and B-spline curve fitting to cluster and classify sets of lanes and the lane tracking to extract information with regards to the lane lines and keep them fit in the image pixel domain.
+%
+For all the simulation, the researchers proposed a Savitzky-Golay filter and a spline smoothing to produce trajectory curves and initialize them as inputs to simulate in Webots involving a sim-ATAV framework.
+%
+Based on heading direction, appearance, and disappearance time, agent vehicles are classified into seven categories and for each category, a specific velocity profile, initial positions, and path will be configured individually.
+%
+Road structure and its extension after the point of the collision have relied on the extracted information coming from the ego vehicle and the oncoming agent paths respectively.
+%
+As a result, the experiment has been evaluated by qualitative evaluation and quantitative evaluation.
+%
+The former evaluation not only indicates the effectiveness in simulating crash scenarios from dashcam cameras but also proposes measurements regarding the position of ego to avoid the collision
+%
+while the latter demonstrates promising results against the KITTI benchmark.
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully. 
+%
+In the same way, researchers attempted to make their paper persuasive since they provided compelling evidence to support their arguments on why AC3R is efficient and generates simulations by providing extensive evaluation such as five research questions, an empirical user study involving 34 participants, and a testing with a state-of-art self-driving software.
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining the framework' mechanisms such as information extraction, trajectory planning, simulation generation, and test generation in details. Therefore, it makes those terms comprehensible. 
+
+
+
+
+
+%
+First of all, the paper was well written and compelling in many aspects. In the abstract and introduction parts, it not only proposed a DeepCrashTest approach in critical scenario generation precisely but also explained the motivation behind along with its configuration and working architecture explicitly.
+%
+Additionally, researchers attempted to construct their paper in the most approachable way by explaining the framework's configuration such as the monocular 2D vehicle tracking, the 3D bounding box estimation, and ego-motion estimation and so on in detail.
+%
+Therefore, those terms became comprehensible for users and accessible for replication in future projects.
+%
+Finally, the main problems are well formulated and the conclusions of the experiment are measured carefully by qualitative evaluation and quantitative evaluation. 
+%
+Not only does the DeepCrashTest provide a complete experiment to simulate the crash scene from the dashcam, but it also executes numerous simulations to look up safer conditions in order to avoid the collision.
+%
+Moreover, they validate results against the KITTI benchmark and most of them might be sustainable to the framework's applicable capability.
+%
+
+On the other hand, the paper failed to diagnose weather conditions affecting a driver's vehicle control and take them into account since such weather changes including heavy rain or strong winds can lead to crashes among cars on the highway.
+%
+The authors could consider simulating these weather factors to explore their effects on driving conditions.
+%
+Another point concerning the evaluation might be the missing discussion about quantitative evaluation.
+%
+The paper does evaluate the generated experiment in the KITTI benchmark, but some of them are only mentioned very briefly without comparing it to other test generation baselines.
+%
+Thus, it would be difficult to indicate how superior the DeepCrashTest performs over other techniques on the same dataset.
+%
+Last but not least, experiment settings are limited in intersection scenarios. 
+%
+It will be better if the authors suggest adding more than one camera, not only from the ego vehicle but also from others around, to address problems in future works since these kinds of crashes are common in the real world.
+%
+To conclude, I’m almost convinced that using the Dashcam Videos to generate critical scenarios for stress-testing the self-driving car is by far an ideal, pragmatic approach for generating the effective and critical test cases in this domain, which can expose many safety-critical problems of the self-driving policy and the proposed approach might be sufficient to translate this concept into applicable use.
+
+
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{4}
+
+The paper has represented its concept transparently and illustrated its empirical evaluation with proper configurations as well. The evaluation results have been promising to improve the safety of self-driving vehicles on public roads. Although there are still small trivial problems, the general approach is comprehensible and those problems can be solved in future work, so I would rate this paper 4 stars.
+
+Of course I would highly recommend this paper for the next semester!
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{How significantly does 2D Guassian noise affect to the safe maneuvers of the ego vehicle?} 
+{What is the motivation behind using Guassian noise? How can they help ego vehicle avoid a collision?}
+
+\criticalquestion{If we setup more than one dashcam to the vehicle or utilize cameras from other cars, can we solve the intersection problem?}% Optional answer follow
+% {Those are some important notes about the question or a possible answer to it.}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{chan2016anticipating}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar with keywords: Dashcam, Autonomous Vehicles, Virtual Testing.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{Vaguely related but the paper proposes a Dynamic-Spatial-Attention (DSA) Recurrent Neural Network (RNN) for anticipating accidents in dashcam videos which requires state-of-the-art object detector, object appearance and motion estimation features.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{zhou2018deepbillboard}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Dashcam, Autonomous Vehicles, Virtual Testing.}
+%% Explain why this paper is related here:
+{Unlike DeepCrashTest, the paper represents DeepBillboard, a systematic physical-world testing generation approach targeting at both digital and physical adversarial.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{zekany2019classifying}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Dashcam, Critical Test Scenarios, Autonomous Vehicles}
+%% Explain why this paper is related here:
+{The paper describes a novel approach for detecting vehicle maneuvers from monocular dash-cam video. This approach can provide meaningful ego motions to explore parameters behind to help the ego avoid a collision. }
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{strickland2018deep}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Dashcam, Critical Test Scenarios}
+%% Explain why this paper is related here:
+{The paper propose a method based on Deep Predictive Model and Bayesian Convolutional LSTM to simulate adversarial scenarios from DashCam and predict collision risk.}
+
+
+\end{document}
