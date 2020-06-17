@@ -96,37 +96,30 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %1/2 Page
 The paper proposes a set of safety contracts for self-driving software and presents some semantics of Signal Temporal Logic to demonstrate the improvement of the autonomous control software's safety performance.
 %
-This calls for ulitizing STL which expresses those safety contracts in a lightweight specification language and enables a wide range of Verification \& Validation (V\&V) methodologies.
+This calls for utilizing STL which expresses those safety contracts in a lightweight specification language and enables a wide range of Verification \& Validation (V\&V) methodologies.
 %
-Those methodologies include testcase generation, falsification, formal verfification, and runtime monitoring which can be intercoporated into the automotive development process.
+Those methodologies include test case generation, falsification, formal verification, and runtime monitoring which can be intercorporate into the automotive development process.
 %
-Due to several proposed advantages over other similar works such as the improvement of the lateral contracts to avoid problematic situations,the support for both discrete and continuous reasoning, and the provision of input-output contracts that allows for safety testing, the authors argues that if all traffic participants stick to thoses rules, they will be able to avoid crashes.
+Due to several proposed advantages over other similar works such as the improvement of the lateral contracts to avoid problematic situations, the support for both discrete and continuous reasoning, and the provision of input-output contracts that allows for safety testing, the authors argue that if all traffic participants stick to those rules, they will be able to avoid crashes.
 %
 
 The STL formulas are interpreted over the predicate $f(s) < c$, logical operators ($\neg$, $\lor$, $\land$) and temporal operators.
 %
-A timed trace $s$ is time series data structure which is provided to evaluate STL formulas.
+A timed trace $s$ is a time-series data structure which is provided to evaluate STL formulas.
 %
-Each time trace includes an ordered sequence of states and their associated time which can be used to derive a robustness degree and a robustness trace respectively in order to describe the robustness value of each timed trace subsequence.
+Each time trace includes an ordered sequence of states and their associated time which can be used to derive a robustness degree and a robustness trace respectively to describe the robustness value of each timed trace subsequence.
 %
-Besides, an abstract model of a vehicle, coordinate transformation to obtain local vehicle coordinates from global coordinates, and typical parameters for acceleration and braking are are provided to demonstrate the effectiveness of STL formulas usage for improving safety performance.
-
+Besides, an abstract model of a vehicle, coordinate transformation to obtain local vehicle coordinates from global coordinates, and typical parameters for acceleration and braking are provided to demonstrate the effectiveness of STL formulas usage for improving safety performance.
 %
-consists of a four-step approach to analyze the police documents and acquire simulation-based test cases such as information extraction, trajectory planning, simulation generation, and test generation.
+To indicate that a set of contracts for autonomous control software is the superior candidate for improving the safety of autonomous vehicles, the authors provided some scenarios along with formal STL and methods to calculate and detect dangerous traces which are harmful to safety conditions.
 %
-Specifically, the AC3R utilizes the NLP and the domain-specific ontology to extract information about roads and vehicles involved in accidents.
+For instance, to prevent crashes between two vehicles, the paper proposed pairwise lateral contracts to calculate the safe lateral distance between those vehicles.
 %
-The intercepting trajectories were computed afterward as an abstract representation including the geometrical data and several waypoints which helps AC3R simulates a car crash using BeamNG.research.
+Also, when the vehicles move within an unstructured environment, the acceleration funnel consists of a set of positions that the vehicle occupies and then derive longitudinal distance and the lateral distance for any pair of vehicles.
 %
-Consequently, the simulation output will be accumulated with test oracles to derive system-level test cases.
+Besides, when a vehicle moves through an intersection, the reachable states can be derived from a braking maneuver and zero lateral acceleration and the authors argue that each autonomous vehicle should attempt to defend against a vehicle that is violating priority.
 %
-To indicate that the AC3R is not only effectively producing simulations matching police reports and efficiently in the practical applicability, but also can derive suitable test scenarios, researchers validated their research by addressing five research questions and concluding empirical studies on two different self-driving software systems such as BeamNG.AI and DeepDriving.
-%
-As a result, the AC3R produced nearly 58\% considered simulations of the impact according to police reports and those simulations were supposed to accurately reflect the police reports' description by a standard online survey service involving 34 participants. 
-%
-Also, the practical applicability of the AC3R is provable at analyzing police reports and producing corresponding critical scenarios.
-%
-Last but not least, the critical test cases produced by AC3R were successfully driving DeepDriving’s driver controller in different ways than the corresponding non-critical test cases and they are effectively exposed safety-critical problems of the self-driving car software.
+Last but not least, the paper considered two important factors during the development of the autonomy software which means safety requirements should not be restrictive and the following distance between traffic participants should be maintained within reasonable values.
 
 \section{Critical Discussion}
 %1/2 Page
