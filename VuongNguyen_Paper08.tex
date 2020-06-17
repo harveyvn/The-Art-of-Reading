@@ -123,42 +123,43 @@ Last but not least, the paper considered two important factors during the develo
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully. 
+First of all, the paper was well written. In the beginning, it not only identified the importance that the autonomous vehicles should have developed industry-wide speciﬁcations but also proposed a solution to address those problems transparently.
 %
-Furthermore, researchers attempted to make their paper approachable to the public by explaining the framework' mechanisms such as information extraction, trajectory planning, simulation generation, and test generation in detail. Therefore, it makes those terms comprehensible. 
+Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as signal temporal logic, the semantics of the operators of STL, some implementation of those operators, etc. in detail. 
 %
-Finally, the goals of the experiment are identified and validated carefully by the authors. 
+Therefore, it makes those terms comprehensible and accessible, even for people with minimal software testing experience.
 %
-In the same way, researchers attempted to make their paper persuasive since they provided compelling evidence to support their arguments on why AC3R is efficiently generating critical test cases by providing extensive evaluation, an online survey involving 34 participants, and testing with a state-of-art self-driving software such as DeepDriving and BeamNG.AI.
+Additionally, the authors have provided an interesting discussion to compare the advantages and disadvantages of their work and other similar studies, so that the audience can derive new insights from the paper's approach.
 %
-The configuration of those empirical studies has been analyzed deeply and the authors also discussed several observations and possible reasons behind.
+Finally, the goals of the experiment are identified and measured by the authors when the paper provided compelling evidence with proper statistical figures to support their arguments in most of the given case studies.
 %
-Also, researchers translated their research into an applicable use through empirical studies. The results then were evaluated and elaborated by corresponding bar charts so that they are reliable and adequate to justify the hypothesis.
 
-On the other hand, it is ideally advised to introduce statistical significance to measure the final result.
+On the other hand, the proposed approach missed its applicable usage to assert the practical effectiveness. 
 %
-The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results to increase their final conclusion's reliability.
+Due to the lack of the examples applied state-of-the-art approaches, it might be easy to introduce bias into the effectiveness and feasibility of those safety contracts.
 %
-Another point that is worth considering might be the lack of discussion about other crash contributing factors such as weather or traffic elements.
+In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
 %
-It would be better if the authors can provide some arguments on how effective AC3R is at producing simulations with the simulated environment or traffic elements.
+Without a proper research goal and research questions, it is difficult to narrow down the research topic which makes the paper hard to read and understand the research problem and how the authors solve those problems.
 %
-Last but not least, experiment settings are limited in police reports on a fixed size map.
+Another point that is worth considering might be the missing statistical significance to measure the statistical result.
 %
-However, it will be better if AC3R could extend its ability to new types of reports in order to formulate numerous critical test cases in the future.
+The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results so that their final conclusion could be more reliable and adequate to justify the hypothesis.
 %
-To conclude, I’m almost convinced that the AC3R is by far an ideal, pragmatic approach for generating the effective driving adversarial scenarios, which can expose many safety-critical problems of the self-driving software and the proposed approach might be sufficient to translate this concept into applicable use.
+Regarding conclusion validity threats, the authors failed to mention some evaluation metrics such as Mann-Whitney U-test $p$-values to measure and evaluate final results, so that their conclusion could be less reliable and adequate to justify the hypothesis.
+%
+To conclude, I’m interested in the idea of providing a suitable set of contracts for autonomous control software is by far an ideal, pragmatic approach for avoiding collisions but the proposed approach might be insufficient to translate this concept into applicable use.
 
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
 
 \section{Rating}
 % Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
-\Stars{5}
+\Stars{3}
 
-The paper has represented its concept transparently and illustrated its empirical evaluation with proper configurations as well. The evaluation results have been promising to expose weaknesses of self-driving softwares. Although there are still small trivial problems, the general approach is comprehensible and those problems can be solved in future work, so I would rate this paper 5 stars.
+The paper has defined concepts and experimental design transparently. However, there are still significant problems as mentioned above, so I would rate this paper 3 stars.
 
-Of course I would highly recommend this paper for the next semester!
+Of course, I do not recommend this paper for the next semester!
 
 \section{Critical Questions}
 % A least 2 questions here. If possible try to answer them or write down 
