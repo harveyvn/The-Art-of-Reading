@@ -1,0 +1,221 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Formal/Paper 04}
+\title{Specifying Safety of Autonomous Vehicles in Signal Temporal Logic}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper proposes a set of safety contracts for self-driving software and presents some semantics of Signal Temporal Logic to demonstrate the improvement of the autonomous control software's safety performance.
+%
+This calls for ulitizing STL which expresses those safety contracts in a lightweight specification language and enables a wide range of Verification \& Validation (V\&V) methodologies.
+%
+Those methodologies include testcase generation, falsification, formal verfification, and runtime monitoring which can be intercoporated into the automotive development process.
+%
+Due to several proposed advantages over other similar works such as the improvement of the lateral contracts to avoid problematic situations,the support for both discrete and continuous reasoning, and the provision of input-output contracts that allows for safety testing, the authors argues that if all traffic participants stick to thoses rules, they will be able to avoid crashes.
+%
+
+The STL formulas are interpreted over the predicate $f(s) < c$, logical operators ($\neg$, $\lor$, $\land$) and temporal operators.
+%
+A timed trace $s$ is time series data structure which is provided to evaluate STL formulas.
+%
+Each time trace includes an ordered sequence of states and their associated time which can be used to derive a robustness degree and a robustness trace respectively in order to describe the robustness value of each timed trace subsequence.
+%
+Besides, an abstract model of a vehicle, coordinate transformation to obtain local vehicle coordinates from global coordinates, and typical parameters for acceleration and braking are are provided to demonstrate the effectiveness of STL formulas usage for improving safety performance.
+
+%
+consists of a four-step approach to analyze the police documents and acquire simulation-based test cases such as information extraction, trajectory planning, simulation generation, and test generation.
+%
+Specifically, the AC3R utilizes the NLP and the domain-specific ontology to extract information about roads and vehicles involved in accidents.
+%
+The intercepting trajectories were computed afterward as an abstract representation including the geometrical data and several waypoints which helps AC3R simulates a car crash using BeamNG.research.
+%
+Consequently, the simulation output will be accumulated with test oracles to derive system-level test cases.
+%
+To indicate that the AC3R is not only effectively producing simulations matching police reports and efficiently in the practical applicability, but also can derive suitable test scenarios, researchers validated their research by addressing five research questions and concluding empirical studies on two different self-driving software systems such as BeamNG.AI and DeepDriving.
+%
+As a result, the AC3R produced nearly 58\% considered simulations of the impact according to police reports and those simulations were supposed to accurately reflect the police reports' description by a standard online survey service involving 34 participants. 
+%
+Also, the practical applicability of the AC3R is provable at analyzing police reports and producing corresponding critical scenarios.
+%
+Last but not least, the critical test cases produced by AC3R were successfully driving DeepDriving’s driver controller in different ways than the corresponding non-critical test cases and they are effectively exposed safety-critical problems of the self-driving car software.
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the abstract of the paper, it not only identified problems that the traditional testing framework faced in self-driving cars but also proposed an alternative solution to address those problems successfully. 
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining the framework' mechanisms such as information extraction, trajectory planning, simulation generation, and test generation in detail. Therefore, it makes those terms comprehensible. 
+%
+Finally, the goals of the experiment are identified and validated carefully by the authors. 
+%
+In the same way, researchers attempted to make their paper persuasive since they provided compelling evidence to support their arguments on why AC3R is efficiently generating critical test cases by providing extensive evaluation, an online survey involving 34 participants, and testing with a state-of-art self-driving software such as DeepDriving and BeamNG.AI.
+%
+The configuration of those empirical studies has been analyzed deeply and the authors also discussed several observations and possible reasons behind.
+%
+Also, researchers translated their research into an applicable use through empirical studies. The results then were evaluated and elaborated by corresponding bar charts so that they are reliable and adequate to justify the hypothesis.
+
+On the other hand, it is ideally advised to introduce statistical significance to measure the final result.
+%
+The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results to increase their final conclusion's reliability.
+%
+Another point that is worth considering might be the lack of discussion about other crash contributing factors such as weather or traffic elements.
+%
+It would be better if the authors can provide some arguments on how effective AC3R is at producing simulations with the simulated environment or traffic elements.
+%
+Last but not least, experiment settings are limited in police reports on a fixed size map.
+%
+However, it will be better if AC3R could extend its ability to new types of reports in order to formulate numerous critical test cases in the future.
+%
+To conclude, I’m almost convinced that the AC3R is by far an ideal, pragmatic approach for generating the effective driving adversarial scenarios, which can expose many safety-critical problems of the self-driving software and the proposed approach might be sufficient to translate this concept into applicable use.
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{5}
+
+The paper has represented its concept transparently and illustrated its empirical evaluation with proper configurations as well. The evaluation results have been promising to expose weaknesses of self-driving softwares. Although there are still small trivial problems, the general approach is comprehensible and those problems can be solved in future work, so I would rate this paper 5 stars.
+
+Of course I would highly recommend this paper for the next semester!
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{Is it possible to extend the AC3R to other languages?} 
+{What is the most difficult obstacle preventing the AC3R extension to other languages beside English?}
+
+\criticalquestion{How do the authors calculate suitable distance between waypoints?}% Optional answer follow
+{Are there any criterias to measure the proper distance between waypoints?}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{afzal2020study}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar as a citation paper of the main paper.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{This paper discusses several software testing practices and challenges of robotic systems. The AC3R is mentioned as one of techniques to address rising challenges from the interaction between robotic systems and the real world.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{afzal2020testing}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar as a citation paper of the main paper.}
+%% Explain why this paper is related here:
+{This paper discusses the complexity and other aspects between robotics and cyberphysical systems such as automated testing and its challenges of using simulators in large scale testing approach. The AC3R is mentioned as a comprehensive mechanism of Automated Test generation frameworks for testing self-driving car software.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{fraser2012whole}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Test Suite Generation, Autonomous Vehicles}
+%% Explain why this paper is related here:
+{Vaguely related but the paper describes a novel approach for evolving test suites aimed to cover all coverage goals at the same time while keeping the total size as small as possible.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{bagschik2018ontology}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords: Ontology, Critical Test Scenarios, Autonomous Vehicles}
+%% Explain why this paper is related here:
+{The paper propose a method generating traffic scenes in natural language as a basic configuration for critical test cases creation for automated vehicles.}
+
+
+\end{document}
