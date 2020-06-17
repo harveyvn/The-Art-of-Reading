@@ -109,15 +109,13 @@ A timed trace $s$ is a time-series data structure which is provided to evaluate 
 %
 Each time trace includes an ordered sequence of states and their associated time which can be used to derive a robustness degree and a robustness trace respectively to describe the robustness value of each timed trace subsequence.
 %
-Besides, an abstract model of a vehicle, coordinate transformation to obtain local vehicle coordinates from global coordinates, and typical parameters for acceleration and braking are provided to demonstrate the effectiveness of STL formulas usage for improving safety performance.
-%
-To indicate that a set of contracts for autonomous control software is the superior candidate for improving the safety of autonomous vehicles, the authors provided some scenarios along with formal STL and methods to calculate and detect dangerous traces which are harmful to safety conditions.
+To indicate that a set of contracts for autonomous control software is the superior candidate for improving the safety of autonomous vehicles, the authors provided some scenarios along with formal STL and methods.
 %
 For instance, to prevent crashes between two vehicles, the paper proposed pairwise lateral contracts to calculate the safe lateral distance between those vehicles.
 %
-Also, when the vehicles move within an unstructured environment, the acceleration funnel consists of a set of positions that the vehicle occupies and then derive longitudinal distance and the lateral distance for any pair of vehicles.
+Also, when the vehicles move within an unstructured environment, the acceleration funnel consists of a set of positions and then derive longitudinal distance and the lateral distance for any pair of vehicles.
 %
-Besides, when a vehicle moves through an intersection, the reachable states can be derived from a braking maneuver and zero lateral acceleration and the authors argue that each autonomous vehicle should attempt to defend against a vehicle that is violating priority.
+Besides, when a vehicle moves through an intersection, the reachable states can be derived from a braking maneuver and zero lateral acceleration.
 %
 Last but not least, the paper considered two important factors during the development of the autonomy software which means safety requirements should not be restrictive and the following distance between traffic participants should be maintained within reasonable values.
 
