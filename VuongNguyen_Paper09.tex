@@ -1,0 +1,217 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Others/Paper 01}
+\title{Misbehaviour Prediction for Autonomous Driving Systems}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper proposed a novel concept in online testing autonomous cars techniques, called SelfOracle, for prediction misbehavior and auto-healing self-driving vehicles in real-time.
+%
+The definition of misbehavior is by giving a test scenario if the output of the DNN system violates the safety requirement or other driving requirements, the DNN reveals a misbehavior
+%
+Its goals is to realize when the self-driving car enters to low-confidence areas due to an unexpected execution context and to monitor steering angle within appropriate timing to avoid the collision or out-of-bounds episodes and bring the car to a safe state.
+%
+The approach is based on self-assessment oracle for autonomous vehicles which is designed on top of the following concepts such as confidence estimation, probability distribution fitting, and time series analysis.
+%
+To elaborate, the reconstructors aims to achieve the model of normality from training driving situations by gathering the visual input data with nominal driving behavior and then training SDC in such data. 
+%
+The authors used four autoencoders which are SAE, DAE, CAE, and VAE to reconstruct a chain of visual input data.
+%
+Besides, there is an additional sequence-based reconstructor which consists of two LSTM-layers and one convolutional layer.
+%
+Consequently, a set of reconstruction errors will be computed.
+% 
+Afterward, the SelfOracle will fit the Gamma probability distribution to the set reconstruction errors to obtain the statistical model of normality. 
+%
+Thus, an optimal confidence threshold $\epsilon$ can be estimated as a trade-off between the probability of misbehavior prediction and false alarms.
+%
+Finally, the approach applied an autoregressive model to perform time series analysis.
+%
+To indicate that the SelfOracle is superior in comparison to DeepRoad, researchers formulated three research questions and concluded empirical studies on three different DNN-based SDCs such as DAVE-2, Epoch, and Chauffeur.
+%
+With regards to evaluation metrics, they performed the confusion matrix, the recall, the specificity, F1-score, and threshold-independent metrics such as AUC-ROC, and AUC-PRC to measure the effectiveness of SelfOracle.
+%
+As a result, the performance of the approach achieved an impressive TPR a low FPR and it also exceeded the input validator of DeepRoad significantly in the following aspects: computational cost, the accuracy of misbehavior prediction, and minimization of false alarms.
+
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the beginning, it not only identified the importance that the autonomous vehicles should have developed industry-wide speciﬁcations but also proposed a solution to address those problems transparently.
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as signal temporal logic, the semantics of the operators of STL, some implementation of those operators, etc. in detail. 
+%
+Therefore, it makes those terms comprehensible and accessible, even for people with minimal software testing experience.
+%
+Additionally, the authors have provided an interesting discussion to compare the advantages and disadvantages of their work and other similar studies, so that the audience can notice the differences and derive new insights from the paper's approach.
+%
+Finally, the goals of the experiment are identified and measured by the authors when the paper provided compelling evidence with proper statistical figures to support their arguments in most of the given case studies.
+%
+
+On the other hand, the proposed approach missed its applicable usage to assert the practical effectiveness. 
+%
+Due to the lack of the examples applied state-of-the-art approaches, it might be easy to introduce bias into the effectiveness and feasibility of those safety contracts.
+%
+In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
+%
+Without a proper research goal and research questions, it is difficult to narrow down the research topic which makes the paper hard to read and understand the research problem and how the authors solve those problems.
+%
+Another point that is worth considering might be the missing statistical significance to measure the statistical result.
+%
+The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results so that their final conclusion could be more reliable and adequate to justify the hypothesis.
+%
+Besides, the authors not only failed to elaborate several STL formulas such as how they are formulated and how they contribute to a set of contracts but also missed solutions for two factors that affect developing safety requirements.
+%
+To conclude, I’m interested in the idea of providing a suitable set of contracts for autonomous control software is by far an ideal, pragmatic approach for avoiding collisions but the proposed approach might be insufficient to translate this concept into applicable use.
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{3}
+
+The paper has defined concepts and experimental design transparently. However, there are still significant problems as mentioned above, so I would rate this paper 3 stars.
+
+Of course, I do not recommend this paper for the next semester!
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{What is a role of occlusions and perception systems in coordinate transformation?} 
+{How can they contribute and improve the set of contracts for autonomous control software?}
+
+\criticalquestion{How can we measure the safety level of the behavior of the autonomous vehicle?}% Optional answer follow
+{How can we know whether they are excessively conservative or not?}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{hekmatnejad2019encoding}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar as a citation paper of the main paper.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{This paper discusses the applicable usage of the main paper in encoding safety rules to STL and using STL based tools for testing and monitoring.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{nonnengartcrisgen}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar as a citation paper of the main paper.}
+%% Explain why this paper is related here:
+{The main paper provides an idea and inspiration so that this paper can propose a sample approach as a model checker to ensure safety guarantees.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{riedmaier2020survey}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar as a citation paper of the main paper.}
+%% Explain why this paper is related here:
+{The main paper provides a good description about the formalization of traffic rules in order to guaranteed safety between traffic participants.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{bouton2019safe}
+%% Explain how did you find the paper here:
+{Searched in References of the 2nd paper and in Google Scholar with keywords: Safe Reinforcement Learning, Autonomous Vehicles}
+%% Explain why this paper is related here:
+{Vaguely related but the paper proposes reinforcement learning algorithm relying on a model-checker to ensure safety guarantees.}
+
+
+\end{document}
