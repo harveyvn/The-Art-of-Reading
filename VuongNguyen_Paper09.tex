@@ -125,32 +125,30 @@ As a result, the performance of the approach achieved an impressive TPR a low FP
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written. In the beginning, it not only identified the importance that the autonomous vehicles should have developed industry-wide speciﬁcations but also proposed a solution to address those problems transparently.
+First of all, the paper was well written. In the abstract of the paper, it not only identified the challenges of estimating the confidence of DNNs during unexpected driving contexts but also proposed an alternative solution to address those problems successfully. 
 %
-Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as signal temporal logic, the semantics of the operators of STL, some implementation of those operators, etc. in detail. 
+In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed DeepRoad in many mentioned aspects. 
 %
-Therefore, it makes those terms comprehensible and accessible, even for people with minimal software testing experience.
+Furthermore, researchers attempted to make their paper approachable to the public by explaining several professional concepts such as autoencoders, confidence measures with black box and white box techniques, Gamma Distribution, and how to calculate the values of the shape and rate parameters, etc. in detail. 
 %
-Additionally, the authors have provided an interesting discussion to compare the advantages and disadvantages of their work and other similar studies, so that the audience can notice the differences and derive new insights from the paper's approach.
+Therefore, it makes those terms comprehensible and accessible, even for people with minimal statistics and machine learning experience.
 %
-Finally, the goals of the experiment are identified and measured by the authors when the paper provided compelling evidence with proper statistical figures to support their arguments in most of the given case studies.
+Finally, the goals of the experiment are identified clearly and measured carefully by the authors. 
+%
+Also, researchers translated their research into an applicable use through empirical studies on three different DNN-models and the results then were evaluated by evaluation metrics such as recall, specificity, AUC-ROC, and AUC-PRC, so that they are reliable and adequate to justify the hypothesis.
 %
 
-On the other hand, the proposed approach missed its applicable usage to assert the practical effectiveness. 
+On the other hand, the authors only evaluated the effectiveness of SelfOracle on the Udacity simulator of self-driving cars which might reveal the generalization issues for the results.
 %
-Due to the lack of the examples applied state-of-the-art approaches, it might be easy to introduce bias into the effectiveness and feasibility of those safety contracts.
+It would be better if the author can extend the SelfOracle on other self-driving systems such as BeamNG.AI or DeepDriving.
 %
-In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
+Moreover, the authors implemented their own DeepRoad version according to the description in the paper which might cause a potential bias in the experiment.
 %
-Without a proper research goal and research questions, it is difficult to narrow down the research topic which makes the paper hard to read and understand the research problem and how the authors solve those problems.
+Another point that is worth considering might be the missing explanation about the effect of unexpected weather conditions such as a day/night cycle or rain, snow, and mist to the misbehavior predictions of SelfOracle.
 %
-Another point that is worth considering might be the missing statistical significance to measure the statistical result.
+During an unexpected context generator, the authors should provide a comparison on which weather conditions significantly affected SelfOracle's prediction and might propose alternative solutions to mitigate this threat.
 %
-The authors could consider adding a statistical significance such as $p$-value to evaluate and measure the certainty of the results so that their final conclusion could be more reliable and adequate to justify the hypothesis.
-%
-Besides, the authors not only failed to elaborate several STL formulas such as how they are formulated and how they contribute to a set of contracts but also missed solutions for two factors that affect developing safety requirements.
-%
-To conclude, I’m interested in the idea of providing a suitable set of contracts for autonomous control software is by far an ideal, pragmatic approach for avoiding collisions but the proposed approach might be insufficient to translate this concept into applicable use.
+To conclude, I’m almost convinced that the SelfOracle is by far an ideal, pragmatic approach for estimating the confidence of the DNN-based autonomous and predicting many potentially safety-critical misbehaviors which can lead to out of bound episodes or collisions.
 
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
