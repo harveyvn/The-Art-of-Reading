@@ -94,15 +94,15 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper proposed a novel concept in online testing autonomous cars techniques, called SelfOracle, for prediction misbehavior and auto-healing self-driving vehicles in real-time.
+The paper proposed a novel concept in autonomous car online testing techniques, called SelfOracle, for predicting misbehavior and auto-correcting self-driving vehicles in real-time.
 %
 The definition of misbehavior is by giving a test scenario if the output of the DNN system violates the safety requirement or other driving requirements, the DNN reveals a misbehavior
 %
-Its goals is to realize when the self-driving car enters to low-confidence areas due to an unexpected execution context and to monitor steering angle within appropriate timing to avoid the collision or out-of-bounds episodes and bring the car to a safe state.
+Its goal is to realize when the self-driving car enters to low-confidence areas due to an unexpected execution context and to monitor steering angle within appropriate timing to avoid collisions or out-of-bound episodes and bring the car to a safe state.
 %
 The approach is based on self-assessment oracle for autonomous vehicles which is designed on top of the following concepts such as confidence estimation, probability distribution fitting, and time series analysis.
 %
-To elaborate, the reconstructors aims to achieve the model of normality from training driving situations by gathering the visual input data with nominal driving behavior and then training SDC in such data. 
+To elaborate, the reconstructors aim to achieve the model of normality from training driving situations by gathering visual input data with nominal driving behavior and then training SDC in such data. 
 %
 The authors used four autoencoders which are SAE, DAE, CAE, and VAE to reconstruct a chain of visual input data.
 %
@@ -140,11 +140,11 @@ Also, researchers translated their research into an applicable use through empir
 
 On the other hand, the authors only evaluated the effectiveness of SelfOracle on the Udacity simulator of self-driving cars which might reveal the generalization issues for the results.
 %
-It would be better if the author can extend the SelfOracle on other self-driving systems such as BeamNG.AI or DeepDriving.
+It would be better if the authors can extend the SelfOracle on other self-driving systems such as BeamNG.AI or DeepDriving.
 %
-Moreover, the authors implemented their own DeepRoad version according to the description in the paper which might cause a potential bias in the experiment.
+Moreover, the authors implemented their DeepRoad version according to the description in the paper which might cause a potential bias in the experiment.
 %
-Another point that is worth considering might be the missing explanation about the effect of unexpected weather conditions such as a day/night cycle or rain, snow, and mist to the misbehavior predictions of SelfOracle.
+Another point that is worth considering might be the missing explanation of the effects of unexpected weather conditions such as a day/night cycle or rain, snow, and mist to the misbehavior predictions of SelfOracle.
 %
 During an unexpected context generator, the authors should provide a comparison on which weather conditions significantly affected SelfOracle's prediction and might propose alternative solutions to mitigate this threat.
 %
@@ -178,38 +178,38 @@ Of course I highly recommend this paper for the next semester !
 % FIRST
 \relatedwork%
 % Put the citation key corresponding to the paper you selected here:
-{hekmatnejad2019encoding}
+{micskei2012concept}
 % Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
-{Searched in Google Scholar as a citation paper of the main paper.}
+{Searched in Google Scholar with keywords Behaviour, Driving Context, Autonomous Systems.}
 % Explain why this paper is related here (do not just say, it has the same content or a similar title...)
-{This paper discusses the applicable usage of the main paper in encoding safety rules to STL and using STL based tools for testing and monitoring.}
+{The paper proposes a model-based testing approach to capture the driving context and behavior of autonomous system,  to automatically generate critical scenarios.}
 
 % SECOND
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{nonnengartcrisgen}
+{li2019method}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar as a citation paper of the main paper.}
+{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
 %% Explain why this paper is related here:
-{The main paper provides an idea and inspiration so that this paper can propose a sample approach as a model checker to ensure safety guarantees.}
+{The paper provides a method to predict gestures from one or more autonomous vehicles to generate or modify one or more predicted trajectories.}
 
 % THIRD
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{riedmaier2020survey}
+{geng2017scenario}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar as a citation paper of the main paper.}
+{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
 %% Explain why this paper is related here:
-{The main paper provides a good description about the formalization of traffic rules in order to guaranteed safety between traffic participants.}
+{The paper proposes a novel scenario-adaptive approach consisting of a ontology model and a learning continuous features of driving behavior for the purpose of predicting driving behaviors of vehicles in close proximity.}
 
 % FOURTH - AND PROBABLY LAST 
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{bouton2019safe}
+{dogan2011autonomous}
 %% Explain how did you find the paper here:
-{Searched in References of the 2nd paper and in Google Scholar with keywords: Safe Reinforcement Learning, Autonomous Vehicles}
+{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
 %% Explain why this paper is related here:
-{Vaguely related but the paper proposes reinforcement learning algorithm relying on a model-checker to ensure safety guarantees.}
+{The paper proposes a RNN approach to predict lane change behavior performed by humans.}
 
 
 \end{document}
