@@ -1,0 +1,225 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Others/Paper 02}
+\title{Estimating the Uniqueness of Test Scenarios derived from Recorded Real-World-Driving-Data using Autoencoders}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper discusses the testing challenges of autonomous vehicles with current testing generation scenario methods since such testing settings contain a large number of redundant test scenarios which does not only imply new insights but also increases the computational cost.
+%
+Therefore, it proposed an automated selection approach that aims to mitigate redundancies in an entire test set based on their relevant environmental parameters.
+%
+In this contribution, the test set is randomly initialized and the autoencoders refine novel scenarios within a pool of real-world test-drives.
+%
+This process will continue to iterate several times until achieving test set reduction which is optimal for saving simulation time and computational cost.
+
+Automotive Systems Engineering is a complex system when it consists of thousands of smaller systems, components, and units inside.
+%
+With the increasing number of features in the automotive domain, the testing process for those systems is challenging and time-consuming since those vehicles become more complex.
+%
+To reduce the system complexity and minimize efforts, a popular approach is to decompose those kinds of systems into subsystems, subcomponents, or smaller units corresponding to separate stages in the Veriﬁcation and Validation (V\&V) phases.
+%
+For different V\&V activities, a tester will apply different testing methods for each decomposition unit.
+%
+Thanks to V\&V concepts, the proposed approach is categorized as X-in-the-loop (XiL) testing concept when the authors aim to reuse the simulation environment several times during testing phases.
+%
+A driving scenario is a basic unit of this approach which is a chain of interactions between test items in relevant environmental parameters.
+%
+From the beginning, the testing data is a complete data pool that records thousands of test drives and each test drive introduces variant driving scenarios and environmental scenes.
+%
+Although testing all available test drives will provide high test coverage, this process might be time-wasting and expensive due to the large size of the initial data pool. 
+%
+To reduce those expenses, an autoencoder network is a possible solution to address this problem when it does not only reduce the size of the data pool as a small and decisive test set but also minimize the scope during the testing phase.
+%
+Due to the requirements of an analysis of the test coverage such as possible cross parameter-value-combinations and signals’ temporal behavior, the input vectors must include the time-series vectors for different data points per different signals to represent the temporal behavior since autoencoders are impossible to support temporal behavior.
+%
+The neural network's output will be compared to the input vector using the Root-Mean-Square Error.
+%
+The higher difference will result in the lower performance of reproduction.
+%
+To indicate the effectiveness, the authors implemented a prototype for the Predictive Cruise Control (PCC) feature which anticipates an optimal trajectory and controls the velocity of the vehicles.
+%
+With regards to evaluation metrics, they performed the evaluation phase with different levels of Reproduction Errors including the Maximum and Average of Reproduction Errors to measure the effectiveness.
+%
+As a result, the simulated distance was reduced to 69\% and 19\% when selecting whole test drives and sequence-based respectively. Also, it reduces computational time and simulation effort by 29\%.
+
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the abstract of the paper, it not only identified the challenges of estimating the confidence of DNNs during unexpected driving contexts but also proposed an alternative solution to address those problems successfully. 
+%
+In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed DeepRoad in many mentioned aspects. 
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining several professional concepts such as autoencoders, confidence measures with black box and white box techniques, Gamma Distribution, and how to calculate the values of the shape and rate parameters, etc. in detail. 
+%
+Therefore, it makes those terms comprehensible and accessible, even for people with minimal statistics and machine learning experience.
+%
+Finally, the goals of the experiment are identified clearly and measured carefully by the authors. 
+%
+Also, researchers translated their research into an applicable use through empirical studies on three different DNN-models and the results then were evaluated by evaluation metrics such as recall, specificity, AUC-ROC, and AUC-PRC, so that they are reliable and adequate to justify the hypothesis.
+%
+
+On the other hand, the authors only evaluated the effectiveness of SelfOracle on the Udacity simulator of self-driving cars which might reveal the generalization issues for the results.
+%
+It would be better if the authors can extend the SelfOracle on other self-driving systems such as BeamNG.AI or DeepDriving.
+%
+Moreover, the authors implemented their DeepRoad version according to the description in the paper which might cause a potential bias in the experiment.
+%
+Another point that is worth considering might be the missing explanation of the effects of unexpected weather conditions such as a day/night cycle or rain, snow, and mist to the misbehavior predictions of SelfOracle.
+%
+During an unexpected context generator, the authors should provide a comparison on which weather conditions significantly affected SelfOracle's prediction and might propose alternative solutions to mitigate this threat.
+%
+To conclude, I’m almost convinced that the SelfOracle is by far an ideal, pragmatic approach for estimating the confidence of the DNN-based autonomous and predicting many potentially safety-critical misbehaviors which can lead to out of bound episodes or collisions.
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{5}
+
+The paper has defined many  concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. Even though, there are still small problems, they can be solved in future work, so I would rate this paper 5 stars.
+
+Of course I highly recommend this paper for the next semester !
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{Why does the paper use Gamma Distribution over ${\chi}^2$ Distribution?} 
+% {..}
+
+\criticalquestion{Table 1, although the performance of LSTM gets close to zero in both TPR and FPR which means it balances the level of true alarms and false alarms, why is it less effective than VAE and SAE?}% Optional answer follow
+% {...}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{micskei2012concept}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar with keywords Behaviour, Driving Context, Autonomous Systems.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{The paper proposes a model-based testing approach to capture the driving context and behavior of autonomous system,  to automatically generate critical scenarios.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{li2019method}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
+%% Explain why this paper is related here:
+{The paper provides a method to predict gestures from one or more autonomous vehicles to generate or modify one or more predicted trajectories.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{geng2017scenario}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
+%% Explain why this paper is related here:
+{The paper proposes a novel scenario-adaptive approach consisting of a ontology model and a learning continuous features of driving behavior for the purpose of predicting driving behaviors of vehicles in close proximity.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{dogan2011autonomous}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
+%% Explain why this paper is related here:
+{The paper proposes a RNN approach to predict lane change behavior performed by humans.}
+
+
+\end{document}
