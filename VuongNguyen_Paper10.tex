@@ -129,39 +129,37 @@ As a result, the simulated distance was reduced to 69\% and 19\% when selecting 
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written. In the abstract of the paper, it not only identified the challenges of estimating the confidence of DNNs during unexpected driving contexts but also proposed an alternative solution to address those problems successfully. 
+First of all, the paper was well written. In the beginning, it not only identified problems that the traditional scenario generation testing framework faced in the automative domain but also proposed an alternative solution to address those problems transparently.
 %
-In the same way, the paper provided compelling evidence to support their arguments on why their approach statistically outperformed DeepRoad in many mentioned aspects. 
+Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as the architectural design concept, prototypical implementation for Preidctive Cruise Control, and fine-tuning network parameters etc. in detail. Therefore, it makes those terms comprehensible, even for people with minimal software testing experience.
 %
-Furthermore, researchers attempted to make their paper approachable to the public by explaining several professional concepts such as autoencoders, confidence measures with black box and white box techniques, Gamma Distribution, and how to calculate the values of the shape and rate parameters, etc. in detail. 
+Additionally, the authors have provided discussion to compare the advantages and disadvantages of their work and other similar studies, so that the audience can notice the differences and derive new insights from the paper's approach.
 %
-Therefore, it makes those terms comprehensible and accessible, even for people with minimal statistics and machine learning experience.
-%
-Finally, the goals of the experiment are identified clearly and measured carefully by the authors. 
-%
-Also, researchers translated their research into an applicable use through empirical studies on three different DNN-models and the results then were evaluated by evaluation metrics such as recall, specificity, AUC-ROC, and AUC-PRC, so that they are reliable and adequate to justify the hypothesis.
+Finally, the goals of the experiment are identified and measured by the authors when the paper provided compelling evidence with proper statistical figures such as Reproduction Errors to support their arguments in most of the given case studies.
 %
 
-On the other hand, the authors only evaluated the effectiveness of SelfOracle on the Udacity simulator of self-driving cars which might reveal the generalization issues for the results.
+On the other hand, the proposed approach missed an appropriate baseline model to assert the practical effectiveness. 
 %
-It would be better if the authors can extend the SelfOracle on other self-driving systems such as BeamNG.AI or DeepDriving.
+Due to the lack of the baseline models applied state-of-the-art approaches, it might be easy to introduce bias into the effectiveness and feasibility of the approach.
 %
-Moreover, the authors implemented their DeepRoad version according to the description in the paper which might cause a potential bias in the experiment.
+In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
 %
-Another point that is worth considering might be the missing explanation of the effects of unexpected weather conditions such as a day/night cycle or rain, snow, and mist to the misbehavior predictions of SelfOracle.
+Without a proper research goal and research questions, it is difficult to narrow down the research topic which makes the paper hard to read and understand the research problem and how the authors solve those problems.
 %
-During an unexpected context generator, the authors should provide a comparison on which weather conditions significantly affected SelfOracle's prediction and might propose alternative solutions to mitigate this threat.
+Furthermore, the number of signals of the prototypical implementation is only two, the former is the upfront vehicle and the latter is the road characterists.
 %
-To conclude, I’m almost convinced that the SelfOracle is by far an ideal, pragmatic approach for estimating the confidence of the DNN-based autonomous and predicting many potentially safety-critical misbehaviors which can lead to out of bound episodes or collisions.
+The amount of signals is quite small which might be difficult to validate results of experiments being reliable and adequate to justify the hypothesis.
+%
+To conclude, I’m almost convinced that using the proposed approach to not only generate critical scenarios for stress-testing the self-driving car but also save the computational cost is by far an ideal, pragmatic approach for exposing many safety-critical problems of the self-driving cars and the proposed approach might be sufficient to translate this concept into applicable use.
 
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
 
 \section{Rating}
 % Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
-\Stars{5}
+\Stars{4}
 
-The paper has defined many  concepts transparently and illustrated the empirical evaluation carefully with proper research questions and statistical methods. Even though, there are still small problems, they can be solved in future work, so I would rate this paper 5 stars.
+The paper has defined concepts transparently and illustrated the empirical evaluation carefully with proper arguments and statistical methods. Even though, there are still major problems, they can be solved in future work, so I would rate this paper 4 stars.
 
 Of course I highly recommend this paper for the next semester !
 
