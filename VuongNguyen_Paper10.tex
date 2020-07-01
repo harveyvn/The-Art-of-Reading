@@ -94,41 +94,35 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper discusses the testing challenges of autonomous vehicles with current testing generation scenario methods since such testing settings contain a large number of redundant test scenarios which does not only imply new insights but also increases the computational cost.
+The paper discusses the testing challenges of autonomous vehicles with current scenario generation methods since such testing settings impose a number of redundancies which does not only imply new insights.
 %
-Therefore, it proposed an automated selection approach that aims to mitigate redundancies in an entire test set based on their relevant environmental parameters.
+Thus, it proposed a novel selection approach that aims to mitigate redundancies in an entire test set based on their relevant environmental parameters.
 %
-In this contribution, the test set is randomly initialized and the autoencoders refine novel scenarios within a pool of real-world test-drives.
+In this contribution, the test set is randomly initialized and the autoencoders refine novel scenarios.
 %
-This process will continue to iterate several times until achieving test set reduction which is optimal for saving simulation time and computational cost.
-
-Automotive Systems Engineering is a complex system when it consists of thousands of smaller systems, components, and units inside.
+This process will continue to iterate several times until achieving the optimal test set reduction.
 %
-With the increasing number of features in the automotive domain, the testing process for those systems is challenging and time-consuming since those vehicles become more complex.
+Automotive Systems Engineering is a complex system so that the testing process for those systems is challenging and time-consuming.
 %
-To reduce the system complexity and minimize efforts, a popular approach is to decompose those kinds of systems into subsystems, subcomponents, or smaller units corresponding to separate stages in the Veriﬁcation and Validation (V\&V) phases.
+To reduce the complexity and minimize necessary efforts, a popular approach is to decompose those kinds of systems into smaller units corresponding to appropriate stages during the Veriﬁcation and Validation (V\&V) phases.
 %
 For different V\&V activities, a tester will apply different testing methods for each decomposition unit.
 %
-Thanks to V\&V concepts, the proposed approach is categorized as X-in-the-loop (XiL) testing concept when the authors aim to reuse the simulation environment several times during testing phases.
+Thanks to V\&V concepts, the proposed approach is categorized as X-in-the-loop (XiL) due to the reuse of the simulation environment several times.
 %
-A driving scenario is a basic unit of this approach which is a chain of interactions between test items in relevant environmental parameters.
+In the beginning, the testing data is a complete data pool that records thousands of test drives and each test drive introduces variant driving scenarios and environmental scenes.
 %
-From the beginning, the testing data is a complete data pool that records thousands of test drives and each test drive introduces variant driving scenarios and environmental scenes.
+Although testing all available test drives will provide high test coverage, this process is time-wasting and expensive due to the large size of the data pool. 
 %
-Although testing all available test drives will provide high test coverage, this process might be time-wasting and expensive due to the large size of the initial data pool. 
+To reduce those expenses, an autoencoder network is a solution when it does not only reduce the size of the data pool but also minimizes the scope during the testing phase.
 %
-To reduce those expenses, an autoencoder network is a possible solution to address this problem when it does not only reduce the size of the data pool as a small and decisive test set but also minimize the scope during the testing phase.
+Additionally, the input vectors include the time-series vectors to represent the temporal behavior since autoencoders do not support this behavior.
 %
-Due to the requirements of an analysis of the test coverage such as possible cross parameter-value-combinations and signals’ temporal behavior, the input vectors must include the time-series vectors for different data points per different signals to represent the temporal behavior since autoencoders are impossible to support temporal behavior.
-%
-The neural network's output will be compared to the input vector using the Root-Mean-Square Error.
+Then, the output will be compared to the input vector using the Root-Mean-Square Error.
 %
 The higher difference will result in the lower performance of reproduction.
 %
-To indicate the effectiveness, the authors implemented a prototype for the Predictive Cruise Control (PCC) feature which anticipates an optimal trajectory and controls the velocity of the vehicles.
-%
-With regards to evaluation metrics, they performed the evaluation phase with different levels of Reproduction Errors including the Maximum and Average of Reproduction Errors to measure the effectiveness.
+To indicate the effectiveness, the authors implemented a prototype for the Predictive Cruise Control (PCC) feature and performed an evaluation with different levels of Reproduction Errors including the Maximum and Average of Reproduction Errors.
 %
 As a result, the simulated distance was reduced to 69\% and 19\% when selecting whole test drives and sequence-based respectively. Also, it reduces computational time and simulation effort by 29\%.
 
