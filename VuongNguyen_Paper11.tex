@@ -1,0 +1,219 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: Others/Paper 02}
+\title{Estimating the Uniqueness of Test Scenarios derived from Recorded Real-World-Driving-Data using Autoencoders}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper discusses the advantages of Deep Neural Networks (DNNs) in testing of autonomous vehicles and then proposes a systematic physical-world testing approach, namely DeepBillboard to solve the 
+
+The paper discusses the testing challenges of autonomous vehicles with current scenario generation methods since such testing settings impose a number of redundancies which does not only imply new insights.
+%
+Thus, it proposed a novel selection approach that aims to mitigate redundancies in an entire test set based on their relevant environmental parameters.
+%
+In this contribution, the test set is randomly initialized and the autoencoders refine novel scenarios.
+%
+This process will continue to iterate several times until achieving the optimal test set reduction.
+%
+Automotive Systems Engineering is a complex system so that the testing process for those systems is challenging and time-consuming.
+%
+To reduce the complexity and minimize necessary efforts, a popular approach is to decompose those kinds of systems into smaller units corresponding to appropriate stages during the Veriﬁcation and Validation (V\&V) phases.
+%
+For different V\&V activities, a tester will apply different testing methods for each decomposition unit.
+%
+Thanks to V\&V concepts, the proposed approach is categorized as X-in-the-loop (XiL) due to the reuse of the simulation environment several times.
+%
+In the beginning, the testing data is a complete data pool that records thousands of test drives and each test drive introduces variant driving scenarios and environmental scenes.
+%
+Although testing all available test drives will provide high test coverage, this process is time-wasting and expensive due to the large size of the data pool. 
+%
+To reduce those expenses, an autoencoder network is a solution when it does not only reduce the size of the data pool but also minimizes the scope during the testing phase.
+%
+Additionally, the input vectors include the time-series vectors to represent the temporal behavior since autoencoders do not support this behavior.
+%
+Then, the output will be compared to the input vector using the Root-Mean-Square Error.
+%
+The higher difference will result in the lower performance of reproduction.
+%
+To indicate the effectiveness, the authors implemented a prototype for the Predictive Cruise Control (PCC) feature and performed an evaluation with different levels of Reproduction Errors including the Maximum and Average of Reproduction Errors.
+%
+As a result, the simulated distance was reduced to 69\% and 19\% when selecting whole test drives and sequence-based respectively. Also, it reduces computational time and simulation effort by 29\%.
+
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the beginning, it not only identified problems that the traditional scenario generation testing framework faced in the automotive domain but also proposed an alternative solution to address those problems transparently.
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as the architectural design concept, the prototypical implementation for Predictive Cruise Control, and fine-tuning network parameters, etc. in detail. Therefore, it makes those terms comprehensible, even for people with minimal software testing experience.
+%
+Additionally, the authors have provided discussion to compare the advantages and disadvantages of their work and other similar studies, so that the audience can notice the differences and derive new insights from the paper's approach.
+%
+Finally, the goals of the experiment are identified and measured by the authors when the paper provided compelling evidence with proper statistical figures such as Reproduction Errors to support their arguments in most of the given case studies.
+%
+
+On the other hand, the proposed approach missed an appropriate baseline model to assert the practical effectiveness. 
+%
+Due to the lack of the baseline models applied state-of-the-art approaches, it might be easy to introduce bias into the effectiveness and feasibility of the approach.
+%
+In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
+%
+Without a proper research goal and research questions, it is difficult to narrow down the research topic which makes the paper hard to read and understand the research problem and how the authors solve those problems.
+%
+Furthermore, the number of signals of the prototypical implementation is only two, the former is the upfront vehicle and the latter is the road characteristics.
+%
+The amount of signals is quite small which might be difficult to validate results of experiments being reliable and adequate to justify the hypothesis.
+%
+To conclude, I’m almost convinced that using the proposed approach to not only generate critical scenarios for stress-testing the self-driving cars but also save the computational cost is by far an ideal, pragmatic approach for exposing many safety-critical problems and this approach might be sufficient to translate this concept into applicable use.
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{4}
+
+The paper has defined concepts transparently and illustrated the empirical evaluation carefully with proper arguments and statistical methods. Even though, there are still major problems, they can be solved in future work, so I would rate this paper 4 stars.
+
+Of course I highly recommend this paper for the next semester !
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{What are advantages of autoencoders over RNN since RNN supports the temporal behavior?} 
+% {..}
+
+\criticalquestion{Why do the overlapping consecutive sequences help to avoid missing road characteristic?}% Optional answer follow
+% {...}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{watanabe2019scenario}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar as a citation paper of the main paper.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{The paper presents a two-layer method for the mining of critical scenarios from accident data containing information in different categories. The main paper is proposed as one of  Scenario Extraction methods.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{mullins2018adaptive}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Test scenarios Selection, Autonomous Systems.}
+%% Explain why this paper is related here:
+{The paper provides a method to generate test cases for autonomous vehicles which utilizes adaptive sampling to reduce the number of simulations required. This paper shares the same idea with the main paper.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{yang2017feature}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Test scenarios Selection, Autonomous Systems.}
+%% Explain why this paper is related here:
+{Vaguely related but the paper proposes a novel deep learning-based approach to analyze relevant features in order to provide a guideline of feature selection to reduce computation cost.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{buhler2004automatic}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
+%% Explain why this paper is related here:
+{Vaguely related but the paper proposes evolutionary functional testing for automating testing and defining a suitable fitness function to reduce the entire training dataset.}
+
+
+\end{document}
