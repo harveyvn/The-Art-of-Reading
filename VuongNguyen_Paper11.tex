@@ -96,7 +96,7 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %1/2 Page
 The paper discusses the advantages of Deep Neural Networks (DNNs) in the testing of autonomous vehicles and an existing critical missing aspect of the autonomous driving testing domain. 
 %
-Thus, it proposes a systematic physical-world testing approach, namely DeepBillboard to produce an adversarial billboard test, which supposes to work under various driving conditions and cause mis-steering targeted steering model.
+Thus, it proposes a systematic physical-world testing approach, namely DeepBillboard to produce an adversarial billboard test, which supposes to work under various driving conditions and cause a missteering to targeted steering model.
 %
 The proposed approach is to generate a printable billboard image with perturbations that aims to enhance test effectiveness and exploit the influence of digital and physical perturbation generation for autonomous systems' steering decisions.
 
@@ -121,37 +121,41 @@ Moreover, DeepBillboard represented the large Exp\_AAE and Test\_AAE values of t
 
 \section{Critical Discussion}
 %1/2 Page
-First of all, the paper was well written. In the beginning, it not only identified problems that the traditional scenario generation testing framework faced in the automotive domain but also proposed an alternative solution to address those problems transparently.
+First of all, the paper was well written. In the beginning, it not only identified problems that the DNN testing framework faced in the automotive domain but also proposed an alternative solution to address those problems transparently.
 %
-Furthermore, researchers attempted to make their paper approachable to the public by explaining basic concepts such as the architectural design concept, the prototypical implementation for Predictive Cruise Control, and fine-tuning network parameters, etc. in detail. Therefore, it makes those terms comprehensible, even for people with minimal software testing experience.
+Furthermore, researchers attempted to make their paper approachable to the public by explaining their proposed concepts such as Evaluating Matrices, the design of DeepBillboard, and the Joint Loss Optimization algorithm, etc. in detail. 
 %
-Additionally, the authors have provided discussion to compare the advantages and disadvantages of their work and other similar studies, so that the audience can notice the differences and derive new insights from the paper's approach.
+Therefore, it makes those terms comprehensible, even for people with minimal software testing experience.
 %
-Finally, the goals of the experiment are identified and measured by the authors when the paper provided compelling evidence with proper statistical figures such as Reproduction Errors to support their arguments in most of the given case studies.
+Additionally, the authors have not only discussed challenges relating to physical attacks and issues relating to the design of DeepBillboard such as Overlapped Perturbations or Color Difference under Various Environment Conditions but also provided comprehensive solutions to address those issues successfully.
+%
+Thus, the audience can notice other aspects of the approach and acquire new insights from those solutions.
+%
+Finally, the goals of the experiment are identified and validated carefully by the authors.
+%
+The authors propose and explain new evaluation metrics and methodology to measure the test effectiveness of perturbations and then demonstrate the efﬁcacy of DeepBillboard in various digital and physical case studies.
+%
+Moreover, the configuration of those empirical studies has been analyzed deeply and the authors also provided compelling evidence with proper statistical figures and tables to support their arguments in most of the given case studies.
 %
 
-On the other hand, the proposed approach missed an appropriate baseline model to assert the practical effectiveness. 
+On the other hand, it is ideally advised to introduce statistical significance such as $p$-value to measure the certainty of the results to increase the final conclusion's reliability.
 %
-Due to the lack of the baseline models applied state-of-the-art approaches, it might be easy to introduce bias into the effectiveness and feasibility of the approach.
+In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions.
 %
-In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions, and then demonstrate some experiments to answer how they achieve the goal. 
+Last but not least, experiment settings are limited in the discussion about the role of other traffic vehicles existing with billboard image.
 %
-Without a proper research goal and research questions, it is difficult to narrow down the research topic which makes the paper hard to read and understand the research problem and how the authors solve those problems.
+It would be better if the paper can demonstrate the empirical studies to explore the contribution of other vehicles with a printable billboard to the missteering of the autonomous vehicle during the driving process in the future.
 %
-Furthermore, the number of signals of the prototypical implementation is only two, the former is the upfront vehicle and the latter is the road characteristics.
-%
-The amount of signals is quite small which might be difficult to validate results of experiments being reliable and adequate to justify the hypothesis.
-%
-To conclude, I’m almost convinced that using the proposed approach to not only generate critical scenarios for stress-testing the self-driving cars but also save the computational cost is by far an ideal, pragmatic approach for exposing many safety-critical problems and this approach might be sufficient to translate this concept into applicable use.
+To conclude, I’m almost convinced that the DeepBillboard is by far an ideal, pragmatic approach for generating the effective driving adversarial scenarios, which can expose many safety-critical problems of the self-driving software and the proposed approach might be sufficient to translate this concept into applicable use.
 
 \newpage 
 % Paper rating, critical questions and related work sections must always appear on the second page of the summary
 
 \section{Rating}
 % Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
-\Stars{4}
+\Stars{5}
 
-The paper has defined concepts transparently and illustrated the empirical evaluation carefully with proper arguments and statistical methods. Even though, there are still major problems, they can be solved in future work, so I would rate this paper 4 stars.
+The paper has defined concepts transparently and illustrated the empirical evaluation carefully with proper arguments and statistical methods. Even though, there are still minor problems, they can be solved in future work, so I would rate this paper 5 stars.
 
 Of course I highly recommend this paper for the next semester !
 
