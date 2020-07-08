@@ -69,8 +69,8 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \lhead{Vuong Nguyen}
-\rhead{Topic: Others/Paper 02}
-\title{Estimating the Uniqueness of Test Scenarios derived from Recorded Real-World-Driving-Data using Autoencoders}
+\rhead{Topic: DeepX/Paper 03}
+\title{DeepBillboard: Systematic Physical-World Testing of Autonomous Driving Systems}
 
 \begin{document}
 \begin{center}
@@ -94,39 +94,29 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 %%%%%%%%%
 \section{Summary}
 %1/2 Page
-The paper discusses the advantages of Deep Neural Networks (DNNs) in testing of autonomous vehicles and then proposes a systematic physical-world testing approach, namely DeepBillboard to solve the 
+The paper discusses the advantages of Deep Neural Networks (DNNs) in the testing of autonomous vehicles and an existing critical missing aspect of the autonomous driving testing domain. 
+%
+Thus, it proposes a systematic physical-world testing approach, namely DeepBillboard to produce an adversarial billboard test, which supposes to work under various driving conditions and cause mis-steering targeted steering model.
+%
+The proposed approach is to generate a printable billboard image with perturbations that aims to enhance test effectiveness and exploit the influence of digital and physical perturbation generation for autonomous systems' steering decisions.
 
-The paper discusses the testing challenges of autonomous vehicles with current scenario generation methods since such testing settings impose a number of redundancies which does not only imply new insights.
+In this paper, the DeepBillboard focused on driving by roadside billboards when it generates adversarial billboard images along a road that tries to mislead the steering angle or cause off-tracking.
 %
-Thus, it proposed a novel selection approach that aims to mitigate redundancies in an entire test set based on their relevant environmental parameters.
+In addition, the approach consists of the CNN-based steering models which will be responsible for receiving images captured by multiple sensors as inputs and then generating steering angle decisions as outputs.
 %
-In this contribution, the test set is randomly initialized and the autoencoders refine novel scenarios.
+The authors defined the Joint Loss Optimization algorithm for producing several adversarial perturbations that will result in misleading steering decisions of an autonomous vehicle with various driving conditions.
 %
-This process will continue to iterate several times until achieving the optimal test set reduction.
+Furthermore, DeepBillboard provided implementations to not only address the overlapped perturbations issues among multiple frames to avoid interferences among those frames but also define Non-printability Score (NPS) to enhance perturbation in the physical world.
 %
-Automotive Systems Engineering is a complex system so that the testing process for those systems is challenging and time-consuming.
+For different environmental conditions, the paper introduced a color adjustment function that adjusts color differences in the video captured by a dashcam which intends to minimize impacts on the adversarial efﬁcacy.
 %
-To reduce the complexity and minimize necessary efforts, a popular approach is to decompose those kinds of systems into smaller units corresponding to appropriate stages during the Veriﬁcation and Validation (V\&V) phases.
+To indicate the effectiveness, the authors evaluate the effectiveness of their algorithm by measuring the Average Angle Errors (AAE) of all frames digitally and physically.
 %
-For different V\&V activities, a tester will apply different testing methods for each decomposition unit.
+As a result, DeepBillboard made all steering models generate an observable average steering angle and the steering angle errors increase as the billboard size increases.
 %
-Thanks to V\&V concepts, the proposed approach is categorized as X-in-the-loop (XiL) due to the reuse of the simulation environment several times.
+Regarding Physical Case Study, the steering angles were straight with the white billboard while it turned to a certain degree with the bright or dark billboard.
 %
-In the beginning, the testing data is a complete data pool that records thousands of test drives and each test drive introduces variant driving scenarios and environmental scenes.
-%
-Although testing all available test drives will provide high test coverage, this process is time-wasting and expensive due to the large size of the data pool. 
-%
-To reduce those expenses, an autoencoder network is a solution when it does not only reduce the size of the data pool but also minimizes the scope during the testing phase.
-%
-Additionally, the input vectors include the time-series vectors to represent the temporal behavior since autoencoders do not support this behavior.
-%
-Then, the output will be compared to the input vector using the Root-Mean-Square Error.
-%
-The higher difference will result in the lower performance of reproduction.
-%
-To indicate the effectiveness, the authors implemented a prototype for the Predictive Cruise Control (PCC) feature and performed an evaluation with different levels of Reproduction Errors including the Maximum and Average of Reproduction Errors.
-%
-As a result, the simulated distance was reduced to 69\% and 19\% when selecting whole test drives and sequence-based respectively. Also, it reduces computational time and simulation effort by 29\%.
+Moreover, DeepBillboard represented the large Exp\_AAE and Test\_AAE values of test effectiveness under different weather conditions with slight differences between those metrics which supposes to indicate the approach’s effectiveness in the physical world setting.
 
 
 \section{Critical Discussion}
