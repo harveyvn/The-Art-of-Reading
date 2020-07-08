@@ -8,6 +8,7 @@
 
 \usepackage{titling}
 \usepackage[utf8]{inputenc}
+\usepackage{csquotes}
 
 %%%% Machinery to draw the rating stars
 \usepackage{tikz}
@@ -32,7 +33,7 @@ rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
 \usepackage{titlesec}
 \titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
 
-\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\usepackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{biblio.bib}
 
 \usepackage[english]{babel}
@@ -133,7 +134,7 @@ Thus, the audience can notice other aspects of the approach and acquire new insi
 %
 Finally, the goals of the experiment are identified and validated carefully by the authors.
 %
-The authors propose and explain new evaluation metrics and methodology to measure the test effectiveness of perturbations and then demonstrate the efﬁcacy of DeepBillboard in various digital and physical case studies.
+The authors propose and explain new evaluation metrics and methodology to measure the test effectiveness of perturbations and then measure the efficacy of DeepBillboard in various digital and physical case studies.
 %
 Moreover, the configuration of those empirical studies has been analyzed deeply and the authors also provided compelling evidence with proper statistical figures and tables to support their arguments in most of the given case studies.
 %
@@ -142,7 +143,7 @@ On the other hand, it is ideally advised to introduce statistical significance s
 %
 In addition, from a professional standpoint, it is ideally advised to introduce a research goal and research questions.
 %
-Last but not least, experiment settings are limited in the discussion about the role of other traffic vehicles existing with billboard image.
+Last but not least, experiment settings are limited in the discussion about the influence of a single billboard on autonomous vehicles.
 %
 It would be better if the paper can demonstrate the empirical studies to explore the contribution of other vehicles with a printable billboard to the missteering of the autonomous vehicle during the driving process in the future.
 %
@@ -161,10 +162,10 @@ Of course I highly recommend this paper for the next semester !
 
 \section{Critical Questions}
 % A least 2 questions here. If possible try to answer them or write down 
-\criticalquestion{What are advantages of autoencoders over RNN since RNN supports the temporal behavior?} 
+\criticalquestion{The approach is limited to the scenario including a single roadside billboard. If we inject more than one adversarial billboards along the roadside at the same time, how does it significantly affect the steering angle decision more than a single adversarial billboard case?} 
 % {..}
 
-\criticalquestion{Why do the overlapping consecutive sequences help to avoid missing road characteristic?}% Optional answer follow
+\criticalquestion{If we introduce more than one vehicles along with a roadside billboard, are there any negative or positive effects to DeepBillboard's efficacy evaluation?}% Optional answer follow
 % {...}
 
 \section{Related Work}
@@ -176,38 +177,38 @@ Of course I highly recommend this paper for the next semester !
 % FIRST
 \relatedwork%
 % Put the citation key corresponding to the paper you selected here:
-{watanabe2019scenario}
+{wiyatno2019physical}
 % Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
 {Searched in Google Scholar as a citation paper of the main paper.}
 % Explain why this paper is related here (do not just say, it has the same content or a similar title...)
-{The paper presents a two-layer method for the mining of critical scenarios from accident data containing information in different categories. The main paper is proposed as one of  Scenario Extraction methods.}
+{The paper presents a similar method to the main paper by creating adversarial billboards that caused a victim model misleading and adding perturbation to whole sequential track rather than a single frame.}
 
 % SECOND
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{mullins2018adaptive}
+{kong2019generating}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar with keywords Test scenarios Selection, Autonomous Systems.}
+{Searched in Google Scholar as a citation paper of the main paper.}
 %% Explain why this paper is related here:
-{The paper provides a method to generate test cases for autonomous vehicles which utilizes adaptive sampling to reduce the number of simulations required. This paper shares the same idea with the main paper.}
+{The paper proposed GAN-based framework PhysGAN to generates physical-world-resilient adversarial examples for misleading autonomous driving systems in a continuous manner.}
 
 % THIRD
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{yang2017feature}
+{zhang2020machine}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar with keywords Test scenarios Selection, Autonomous Systems.}
+{Searched in Google Scholar as a citation paper of the main paper.}
 %% Explain why this paper is related here:
-{Vaguely related but the paper proposes a novel deep learning-based approach to analyze relevant features in order to provide a guideline of feature selection to reduce computation cost.}
+{Vaguely related but the paper covers a comprehensive survey of Machine Learning Testing research including 138 papers and it classifies the main paper to the Domain-specific Test Input Synthesis.}
 
 % FOURTH - AND PROBABLY LAST 
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{buhler2004automatic}
+{eykholt2018robust}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar with keywords Behaviour, Predicting, Autonomous Systems.}
+{Searched in Google Scholar with keywords Physical-world Testing, Autonomous driving systems.}
 %% Explain why this paper is related here:
-{Vaguely related but the paper proposes evolutionary functional testing for automating testing and defining a suitable fitness function to reduce the entire training dataset.}
+{The paper proposes a new attack approach which shares the concept of Join Optimization algorithm. The approach is called Robust Physical Perturbations that generates perturbations by taking images under different conditions into account.}
 
 
 \end{document}
