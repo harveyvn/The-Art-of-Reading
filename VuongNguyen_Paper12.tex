@@ -1,0 +1,211 @@
+\documentclass[10pt,a4paper]{report}
+%
+%
+%% IF YOU EXPERIENCE ANY PROBLEM WITH THIS TEMPLATE CONTACT DR. ALESSIO GAMBI
+%
+%
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+
+%%%% Machinery to draw the rating stars
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\Stars}[2][fill=yellow,draw=orange]{\begin{tikzpicture}[baseline=-0.35em,#1]
+\foreach \X in {1,...,5}
+{\pgfmathsetmacro{\xfill}{min(1,max(1+#2-\X,0))}
+\path (\X*1.1em,0) 
+node[star,draw,star point height=0.25em,minimum size=1em,inner sep=0pt,
+path picture={\fill (path picture bounding box.south west) 
+rectangle  ([xshift=\xfill*1em]path picture bounding box.north west);}]{};
+}
+\end{tikzpicture}}
+%%%% Machinery to draw the rating stars
+
+\usepackage{fancyhdr}
+\thispagestyle{fancy}
+\pagestyle{fancy}
+
+\usepackage{paralist}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+%%%% Related Work environments
+\newcounter{RelatedWorkCounter}
+\addtocounter{RelatedWorkCounter}{1}
+\newcommand{\relatedwork}[3]{%
+\paragraph{Paper:}\fullcite{#1}
+\begin{compactdesc}
+\item[- How:] #2
+\item[- Why:] #3
+\end{compactdesc}
+\stepcounter{RelatedWorkCounter}
+}
+
+%%%% Critical question environments
+\newcounter{QuestionCounter}
+\addtocounter{QuestionCounter}{1}
+\makeatletter
+\newcommand{\criticalquestion}[1]{\def\criticalquestion@required{#1}\criticalquestion@opt}
+\newcommand{\criticalquestion@opt}[1]{%
+\paragraph{Q\theQuestionCounter: \criticalquestion@required}
+#1%
+\stepcounter{QuestionCounter}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta Data:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{Vuong Nguyen}
+\rhead{Topic: DeepX/Paper 02}
+\title{DeepRoad: GAN-Based Metamorphic Testing and Input Validation Framework for Autonomous Driving Systems}
+
+\begin{document}
+\begin{center}
+\textbf{\thetitle}
+\end{center}
+
+%%%%%%%%%
+% If your text is too long and you need to choose what part to cut down between Summary and Critical Discussion, always cut down on the Summary! We all have read the paper, so the really interesting part is your opinion!
+% follow the lane
+% regain its center on the lane
+% drive within a lane center
+% avoid land departure
+% to depart the road
+% to move away from the center of the lane
+% cause the self-driving car to break out of the land bounds
+% cause the ego-car to drive away from the lane center
+% leads the ego-car to drive out of the road
+
+% be amenable for
+% be responsible for
+%%%%%%%%%
+\section{Summary}
+%1/2 Page
+The paper discusses the testing challenges of the current DNN-based testing approaches since such testing settings can cause fatal accidents but also have low accuracy in disclosing the inconsistent behaviors of multiple DNN systems in the real-world driving scenarios.
+%
+And thus, the paper proposes an unsupervised DNN-based framework, namely DeepRoad, to address these problems in autonomous driving systems.
+%
+DeepRoad consists of an ability to synthesize large amounts of driving scenarios and generate a corresponding adversarial scenario, a metamorphic testing technique for consistency testing, and an effective validation method on input image for such systems.
+%
+
+DeepRoad's metamorphic testing module relies on the UNIT DNN-based method to detect the system vulnerability by test cases and then it defines suitable Metamorphic Relations to expose the inconsistent driving behaviors during driving scenes with different weather conditions.
+%
+Thanks to the metamorphic testing module, DeepRoad can guarantee the accuracy and reliability of autonomous driving systems under different scenarios such as heavy snow or hard rain.
+%
+Another important module of DeepRoad is an input validation which aims to ensure properly formed data being accepted by systems by comparing the differences between inputs and corresponding training outputs with the proper threshold.
+%
+The module uses a pre-trained DNN model–VGGNet to extract features from both inputs and training outputs, and then the PCA will reduce their dimension and the average distance will be measured based on image similarity.
+%
+To indicate the effectiveness of DeepRoad, the authors selected heavy snow and hard rain as weather conditions to collect appropriate images for stress-testing three open-source DNN-based autonomous driving systems from Udacity.
+%
+Regarding evaluation metrics, they defined metrics to evaluate model inconsistency and input validation.
+%
+As a result, DeepRoad$_{MT}$ was exposing thousands of inconsistent behaviors under different weather conditions for Autumn, Chauffeur, and Rwightman, respectively.
+%
+Furthermore, DeepRoad$_{IV}$ was validating inputs effectively by measuring proper threshold which can improve the reliability for the DNN-based autonomous driving system.
+
+
+\section{Critical Discussion}
+%1/2 Page
+First of all, the paper was well written. In the beginning, it not only identified problems that the DNN testing framework faced in the automotive domain but also proposed an alternative solution to address those problems transparently.
+%
+Furthermore, researchers attempted to make their paper approachable to the public by explaining proposed concepts such as the structure of UNIT, PAC Learning theory, Framework DeepRoad$_{MT}$, and Framework DeepRoad$_{IV}$ in detail. 
+%
+Therefore, it makes those terms comprehensible, even for people with minimal software testing experience.
+%
+Finally, the empirical studies' results have been validated carefully by the authors.
+%
+The authors have not only explained evaluation metrics relating to DeepRoad$_{MT}$ and DeepRoad$_{IV}$ but also provided a full explanation about experiments' baseline dataset and evaluation models from Udacity including Autumn, Chauffeur, and Rwightman.
+%
+Moreover, the results of empirical evaluations for DeepRoad frameworks have been discussed in details and the authors also provided compelling evidence with proper statistical figures to support their arguments in most of the given case studies.
+%
+
+On the other hand, it is ideally advised to introduce statistical significance such as $p$-value to measure the certainty of the results to increase the conclusion's reliability.
+%
+Moreover, the paper is full of complex knowledge and information relating several techniques even though they might be an advantage which provides readers deep insights about the paper's background using methods.
+%
+Additionally, while the proposed approach might be a good method in term of generating adversarial test cases by transforming driving scenes' weather condition from sunny to hard rain or snowy, there might be distances or errors between these virtual test cases and real-world driving scenes since there are no metric to measure those distances and the authors failed to mention this aspect.
+%
+Last but not least, experiment settings are limited in the discussion about the influence of a threshold and how to define the threshold.
+%
+It would be better if the paper can provide scientific methods like they did to calculate the proper threshold for DeepRoad$_{IV}$ framework.
+%
+To conclude, I’m almost convinced that the DeepRoad is by far an ideal, pragmatic approach for generating effective driving adversarial scenarios, which can expose inconsistent behaviors of autonomous driving systems in different weather condition and the proposed approach might be sufficient to translate this concept into applicable use.
+
+\newpage 
+% Paper rating, critical questions and related work sections must always appear on the second page of the summary
+
+\section{Rating}
+% Add here the overall rating of the paper (1 start is BAD, 5 starts is VERY GOOD). Please explain in one or two sentences the reason of your evaluation and whether you suggests the paper for the next edition of the seminar.
+\Stars{5}
+
+The paper has defined concepts transparently and illustrated the empirical evaluation carefully with proper arguments and statistical methods. Even though, there are still minor problems, they can be solved in future work, so I would rate this paper 5 stars.
+
+Of course I highly recommend this paper for the next semester !
+
+\section{Critical Questions}
+% A least 2 questions here. If possible try to answer them or write down 
+\criticalquestion{The approach is limited to the scenario including a single roadside billboard. If we inject more than one adversarial billboards along the roadside at the same time, how does it significantly affect the steering angle decision more than a single adversarial billboard case?} 
+% {..}
+
+\criticalquestion{If we introduce more than one vehicles along with a roadside billboard, are there any negative or positive effects to DeepBillboard's efficacy evaluation?}% Optional answer follow
+% {...}
+
+\section{Related Work}
+% Remember that you MUST list at least 4 related work here ! Fill the bib file will all the required information and build your bibliography before submitting the paper !
+\paragraph{How many other papers did you considered during for the related work?}
+4
+
+
+% FIRST
+\relatedwork%
+% Put the citation key corresponding to the paper you selected here:
+{wiyatno2019physical}
+% Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
+{Searched in Google Scholar as a citation paper of the main paper.}
+% Explain why this paper is related here (do not just say, it has the same content or a similar title...)
+{The paper presents a similar method to the main paper by creating adversarial billboards that caused a victim model misleading and adding perturbation to whole sequential track rather than a single frame.}
+
+% SECOND
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{kong2019generating}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar as a citation paper of the main paper.}
+%% Explain why this paper is related here:
+{The paper proposed GAN-based framework PhysGAN to generates physical-world-resilient adversarial examples for misleading autonomous driving systems in a continuous manner.}
+
+% THIRD
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{zhang2020machine}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar as a citation paper of the main paper.}
+%% Explain why this paper is related here:
+{Vaguely related but the paper covers a comprehensive survey of Machine Learning Testing research including 138 papers and it classifies the main paper to the Domain-specific Test Input Synthesis.}
+
+% FOURTH - AND PROBABLY LAST 
+\relatedwork
+%% Put the cite key corresponding to the paper here:
+{eykholt2018robust}
+%% Explain how did you find the paper here:
+{Searched in Google Scholar with keywords Physical-world Testing, Autonomous driving systems.}
+%% Explain why this paper is related here:
+{The paper proposes a new attack approach which shares the concept of Join Optimization algorithm. The approach is called Robust Physical Perturbations that generates perturbations by taking images under different conditions into account.}
+
+
+\end{document}
