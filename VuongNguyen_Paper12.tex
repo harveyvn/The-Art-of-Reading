@@ -131,12 +131,12 @@ Finally, the empirical studies' results have been validated carefully by the aut
 %
 The authors have not only explained evaluation metrics relating to DeepRoad$_{MT}$ and DeepRoad$_{IV}$ but also provided a full explanation about experiments' baseline dataset and evaluation models from Udacity including Autumn, Chauffeur, and Rwightman.
 %
-Moreover, the results of DeepRoad frameworks empirical evaluations have been discussed in detail and the authors also provided compelling evidence with proper statistical figures to support their arguments in most of the given case studies.
+Moreover, the results of the DeepRoad framework's empirical evaluations have been discussed in detail and the authors also provided compelling evidence with proper statistical figures to support their arguments in most of the given case studies.
 %
 
 On the other hand, the introduction of statistical significance such as $p$-value to measure the certainty of the results should have been included to increase the conclusion's reliability and it is ideally advised to introduce a research goal and research questions to narrow down the research topic which makes the paper's research problems and their proposed solutions comprehensible.
 %
-Moreover, the explanations of sophisticated terminologies was, to a certain extent, distracting; thereby unintentionally shifting readers' attention elsewhere.
+Moreover, the explanations of sophisticated terminologies were, to a certain extent, distracting; thereby unintentionally shifting readers' attention elsewhere.
 %
 Additionally, while the proposed approach included variables previously untested, such as altering atmospheric conditions, there might be tolerances between these virtual test cases and real-world driving scenarios since there are no metrics to measure those distances and the authors failed to mention this aspect.
 %
@@ -159,10 +159,10 @@ Of course I highly recommend this paper for the next semester !
 
 \section{Critical Questions}
 % A least 2 questions here. If possible try to answer them or write down 
-\criticalquestion{The approach is limited to the scenario including a single roadside billboard. If we inject more than one adversarial billboards along the roadside at the same time, how does it significantly affect the steering angle decision more than a single adversarial billboard case?} 
+\criticalquestion{How can the realistic of generated test cases be measured? Are there any distances between generated pictures and real-world pictures?} 
 % {..}
 
-\criticalquestion{If we introduce more than one vehicles along with a roadside billboard, are there any negative or positive effects to DeepBillboard's efficacy evaluation?}% Optional answer follow
+\criticalquestion{The paper introduced given a predefined threshold, DeepRoad$_{IV}$ can effectively validate input. Are there any proper methods to pre-define threshold?}% Optional answer follow
 % {...}
 
 \section{Related Work}
@@ -174,38 +174,38 @@ Of course I highly recommend this paper for the next semester !
 % FIRST
 \relatedwork%
 % Put the citation key corresponding to the paper you selected here:
-{wiyatno2019physical}
+{wu2019deep}
 % Explain how did you find the paper here (check the slides to see how you can effectively find related work papers)
 {Searched in Google Scholar as a citation paper of the main paper.}
 % Explain why this paper is related here (do not just say, it has the same content or a similar title...)
-{The paper presents a similar method to the main paper by creating adversarial billboards that caused a victim model misleading and adding perturbation to whole sequential track rather than a single frame.}
+{The paper proposed Deep Validation, a framework for detecting real-world error-inducing corner cases in a DNN-based system during runtime. Its method is similar to DeepRoad in resorting the training data and checking input validity of DNNs.}
 
 % SECOND
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{kong2019generating}
+{xie2019deephunter}
 %% Explain how did you find the paper here:
 {Searched in Google Scholar as a citation paper of the main paper.}
 %% Explain why this paper is related here:
-{The paper proposed GAN-based framework PhysGAN to generates physical-world-resilient adversarial examples for misleading autonomous driving systems in a continuous manner.}
+{The paper proposed DeepHunter, a framework for detecting potential defects of general-purpose DNNs by using a metamorphic mutation strategy to generate test cases and multiple extensible coverage criteria to guide the test generation.}
 
 % THIRD
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{zhang2020machine}
+{qiu2019semanticadv}
 %% Explain how did you find the paper here:
 {Searched in Google Scholar as a citation paper of the main paper.}
 %% Explain why this paper is related here:
-{Vaguely related but the paper covers a comprehensive survey of Machine Learning Testing research including 138 papers and it classifies the main paper to the Domain-specific Test Input Synthesis.}
+{The paper proposed SemanticAdv to generate semantically realistic adversarial examples via attribute conditioned image editing which results in semantically meaningful appearances and high targeted attack success rates in term of whitebox and blackbox settings.}
 
 % FOURTH - AND PROBABLY LAST 
 \relatedwork
 %% Put the cite key corresponding to the paper here:
-{eykholt2018robust}
+{du2018deepcruiser}
 %% Explain how did you find the paper here:
-{Searched in Google Scholar with keywords Physical-world Testing, Autonomous driving systems.}
+{Searched in Google Scholar as a citation paper of the main paper.}
 %% Explain why this paper is related here:
-{The paper proposes a new attack approach which shares the concept of Join Optimization algorithm. The approach is called Robust Physical Perturbations that generates perturbations by taking images under different conditions into account.}
+{Vaguely related but the paper proposes an automated testing framework, namely DeepCruiser, which systematically generates test cases in large scale to stateful DL systems.}
 
 
 \end{document}
