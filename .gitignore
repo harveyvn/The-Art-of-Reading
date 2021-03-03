@@ -1,7 +1,6 @@
 .texpadtmp/
 .build/
 *.zip
-*.pdf
 glyphtounicode.tex
 *.aux
 *.glo
