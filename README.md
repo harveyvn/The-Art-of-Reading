@@ -3,7 +3,7 @@
 - Markdown: [Typora](https://typora.io/)
 - Latex: [Texpad](https://www.texpad.com/), [Overleaf](https://www.overleaf.com/)
 
-# Papers Summary
+# Papers
 
 [This section](https://github.com/harveyvn/The-Art-of-Reading/tree/main/papers) contains summaries that concern interesting papers for Testing Autonomous Cars.
 
