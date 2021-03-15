@@ -20,3 +20,6 @@
 - [DeepBillboard: Systematic Physical-World Testing of Autonomous Driving Systems](https://github.com/harveyvn/The-Art-of-Reading/blob/main/papers/DeepBillboard%20Systematic%20Physical-World%20Testing%20of%20Autonomous%20Driving%20Systems.pdf)
 - [GAN-Based Metamorphic Testing and Input Validation Framework for Autonomous Driving Systems](https://github.com/harveyvn/The-Art-of-Reading/blob/main/papers/GAN-Based%20Metamorphic%20Testing%20and%20Input%20Validation%20Framework%20for%20Autonomous%20Driving%20Systems.pdf)
 
+# Articles
+
+- [Measuring Effect Size with the Vargha-Delaney A](https://github.com/harveyvn/The-Art-of-Reading/blob/main/Measuring%20Effect%20Size%20with%20the%20Vargha-Delaney%20A.md)
